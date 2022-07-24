@@ -1,0 +1,17 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "debug c++",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "/Users/mrojas-e/Documents/42/core/5_circle/cpp/cpp00/ex01/phonebook",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "/Users/mrojas-e/Documents/42/core/5_circle/cpp/cpp00/ex01",
+			"environment": [],
+			"externalConsole": true,
+			"MIMode": "lldb"
+		}
+	]
+}
