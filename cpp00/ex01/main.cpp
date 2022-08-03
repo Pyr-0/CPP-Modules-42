@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 22:36:21 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/07/20 12:18:15 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/03 14:22:49 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 	
 	print_menu();
 	menu_input_check(pb);
-	pb.print_contact(0);
-	//ask_data(name, &pb);
+	//pb.print_contact();
+	//display_data(pb);
 	return 0;
 }

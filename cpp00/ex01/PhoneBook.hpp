@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:15:34 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/07/19 21:27:15 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/03 15:26:05 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	PhoneBook{
 	private:
 		Contact		contact[8];
 		int			index;
+		bool		isFull;
 
 	public:
 		
@@ -30,12 +31,13 @@ class	PhoneBook{
 	
 		void	add();
 		void	search(Contact data);
-		void	print_contact(int index);
+		void	display_all();
 };
 
 void	menu_input_check(PhoneBook &pb);
 void	ask_data(Contact data, PhoneBook *pb);
 void	resize_string(std::string yall);
+void	display_data(PhoneBook &pb);
 
 
 

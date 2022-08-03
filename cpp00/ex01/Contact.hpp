@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:15:34 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/07/19 18:40:08 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/03 14:58:32 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ class	Contact{
 		void set_phone(std::string);
 		void set_dark(std::string);
 		void set_nick(std::string);
+		
+		void	print_contact();
 };
 
 void	display_data();

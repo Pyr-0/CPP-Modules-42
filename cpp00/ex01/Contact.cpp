@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 22:34:03 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/07/21 15:28:57 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/03 15:34:54 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,24 @@ void	resize_string(std::string string)
 		std::cout<<std::setw(10)<<string<< "|";
 }
 
-void	display_data()
-{
-		std::cout<<"\e[36m"<<std::setw(40)<<std::setfill('-')<<"\n"
-				 <<"\e[36m"<<std::setw(11)<< "index|"<< std::setw(11)<<"First name|"
-				 <<"\e[36m"<<std::setw(11)<<"Last Name|"<< std::setw(11)<<"Nickname|"<<std::endl
-				 <<"\e[36m"<<"********************************************"<<std::endl;
-}
-
 void	print_menu()
 {
 		std::cout<<"\e[36m"<<std::setw(28)<<std::setfill('-')<<"\n"
-				 <<"\e[38m"<<std::setw(26)<<std::setfill(' ')<<"RETRO PHONEBOOK MENU!\n"
-				 <<"\e[38m"<<std::setw(26)<<"   Please write a command\n"<<std::setfill(' ')
-				 <<"\e[36m"<<std::setw(28)<<std::setfill('-')<<"\n"<<std::setfill(' ')
-				 <<"\e[36m"<<std::setw(17)<<"[  ADD ]\n"<<std::setfill(' ')
-				 <<"\e[36m"<<std::setw(17)<<"[SEARCH]\n"<<std::setfill(' ')
-				 <<"\e[36m"<<std::setw(17)<<"[ EXIT ]\n"<<std::setfill(' ');
+				 <<std::setw(26)<<std::setfill(' ')<<"RETRO PHONEBOOK MENU!\n"
+				 <<std::setw(26)<<"   Please write a command\n"<<std::setfill(' ')
+				 <<std::setw(28)<<std::setfill('-')<<"\n"<<std::setfill(' ')
+				 <<std::setw(17)<<"[  ADD ]\n"<<std::setfill(' ')
+				 <<std::setw(17)<<"[SEARCH]\n"<<std::setfill(' ')
+				 <<std::setw(17)<<"[ EXIT ]\n"<<std::setfill(' ')<<"\e[0m";
+}
+
+void Contact::print_contact()
+{
+	std::cout<<get_first()<<std::endl;
+	std::cout<<get_last()<<std::endl;
+	std::cout<<get_nick()<<std::endl;
+	std::cout<<get_phone()<<std::endl;
+	std::cout<<get_dark()<<std::endl;
 }
 
 /* void    PhoneBook::display_phonebook(void) const{
