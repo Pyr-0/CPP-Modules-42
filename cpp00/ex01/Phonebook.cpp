@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 23:07:35 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/04 19:52:47 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:12:18 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,10 @@ void	menu_input_check(PhoneBook &pb)
 	{
 		
 		if(input == "ADD")
+		{
 			pb.add();
+			std::cout<<GREEN<<"\n**Contact was Succesfully Added!**"<<RESET<<std::endl;
+		}
 		else if(input == "SEARCH")
 		{
 			display_data(pb);
