@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:15:34 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/03 14:58:32 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:20:45 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 #include <iostream>
 #include <string>
+
+#define		RED "\e[31m"
+#define		GREEN "\e[32m"
+#define		RESET "\e[0m"
 
 class	Contact{
 	
@@ -45,7 +49,6 @@ class	Contact{
 		void	print_contact();
 };
 
-void	display_data();
 std::string	log_data(std::string message);
 void	print_menu();
 
