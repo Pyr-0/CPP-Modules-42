@@ -6,17 +6,17 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/08/05 18:21:41 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/08/06 22:10:29 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	phonebook
+NAME 		=	zombie
 CC_FLAGS	=	-Wall -Werror -Wextra -std=c++98
 
 CC_FLAGS += -g
 RM			=	rm -rf
 DIR_OBJS	=	./obj/
-SRC			=	Contact.cpp Phonebook.cpp main.cpp
+SRC			=	main.cpp zombieHorde.cpp Zombie.cpp
 OBJS 		=	$(SRC:%.cpp=$(DIR_OBJS)%.o)
 
 all:			$(NAME)

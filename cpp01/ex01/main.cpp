@@ -6,17 +6,28 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 22:36:21 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/04 21:15:17 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/06 23:45:15 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Zombie.hpp"
 
-int	main()
+void	func()
 {
-	PhoneBook	pb;
+	Zombie	*horde;
 	
-	print_menu();
-	menu_input_check(pb);
+	horde = NULL;
+	horde = zombieHorde(15, "Moar");
+	for(int i = 0; i < 15; i++){
+		horde[i].announce();
+	}
+	delete [] horde;
+}
+
+int	main(void)
+{
+
+	func();
+	//system("leaks zombie");
 	return 0;
 }
