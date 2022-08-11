@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 12:15:15 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/11 18:16:12 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/11 18:35:25 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
-#include <iostream>
-#include <sstream>
+#include <Weapon.hpp>
 
 //============COLORS!=======//
 /*EASTEREGG is only visible in some Terminals ;) (Terminal instead of iTerm)*/
@@ -23,20 +22,21 @@
 #define			RESET "\e[0m"
 #define			EASTEREGG "\e[05m"
 
-class	Zombie{
+class	HumanB{
 	private:
 
+	Weapon	_weapon;
 	std::string	_name;
 
 	public:
 
-	Zombie(void);
-	~Zombie(void);
+	HumanB();
+	~HumanB();
 
-	void	announce(void)const;
-	void	setName(std::string name, int i);
+	const void attack(){
+		std::cout<<RED<<this->_name<<" attacks with their "<< this->_weapon.getType();
+	}
 };
 
-Zombie* zombieHorde(int N, std::string name);
 
 #endif
