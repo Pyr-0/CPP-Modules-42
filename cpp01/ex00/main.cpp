@@ -6,12 +6,11 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 22:36:21 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/06 21:31:06 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:02:28 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
 
 void func()
 {

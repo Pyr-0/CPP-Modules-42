@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 12:15:15 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/11 18:25:35 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:08:28 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef ZOMBIE_H
+#define ZOMBIE_H
 
 #include <iostream>
-#include <sstream>
 
 //============COLORS!=======//
 /*EASTEREGG is only visible in some Terminals ;) (Terminal instead of iTerm)*/
@@ -23,20 +22,21 @@
 #define			RESET "\e[0m"
 #define			EASTEREGG "\e[05m"
 
-class	Zombie{
+class	Zombie 
+{
 	private:
 
 	std::string	_name;
 
 	public:
 
-	Zombie(void);
+	Zombie(std::string name);
 	~Zombie(void);
 
-	void	announce(void)const;
-	void	setName(std::string name, int i);
+	void	announce(void);
 };
 
-Zombie* zombieHorde(int N, std::string name);
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif

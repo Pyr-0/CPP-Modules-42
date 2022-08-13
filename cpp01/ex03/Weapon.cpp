@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 21:58:07 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/06 23:43:39 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/13 15:50:12 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-/*	This function will create an array of elements in this case Zombies),
-	but in the same way that we would with malloc, we must protect against NULL
-	and free the created array at the end of our program*/
-Zombie* zombieHorde(int N, std::string name)
-{
-	Zombie	*horde;
-	
-	horde = new Zombie[N];
-	if(!horde)
-		return NULL;
-	for(int i = 0; i < N; i++){
-		horde[i].setName(name, i);
-	}
-	return horde;
+//============CONSTRUCTOR=========//
+Weapon::Weapon(std::string weapon):_type(weapon){
+}
+
+//============DESTRUCTOR=========//
+Weapon::~Weapon(){}
+
+//============METHODS=========//
+
+const std::string&	Weapon::getType(void){
+	return this->_type;
+}
+
+void				Weapon::setType(std::string new_type){
+	this->_type = new_type;
 }

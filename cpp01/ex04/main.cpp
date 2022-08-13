@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/05 12:15:15 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/12 21:02:15 by mrojas-e         ###   ########.fr       */
+/*   Created: 2022/07/09 22:36:21 by mrojas-e          #+#    #+#             */
+/*   Updated: 2022/08/13 18:13:50 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
 #include <iostream>
+#include <fstream>
+#include <cctype>
+#include <string>
 
-//============COLORS!=======//
-#define			RED "\e[31m"
-#define			GREEN "\e[32m"
-#define			LILA "\e[35m"
-#define			RESET "\e[0m"
-
-
-class	Weapon{
-	private:
-
-	std::string	_type;
-
-	public:
-
-	Weapon(std::string weapon);
-	~Weapon();
-
-	const std::string&	getType(void);
-	void				setType(std::string new_type);
-};
-
-#endif
+int	main()
+{
+	
+	return 0;
+}

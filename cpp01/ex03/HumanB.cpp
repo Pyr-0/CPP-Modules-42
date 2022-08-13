@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 21:58:07 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/06 23:43:39 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/13 15:58:49 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
-/*	This function will create an array of elements in this case Zombies),
-	but in the same way that we would with malloc, we must protect against NULL
-	and free the created array at the end of our program*/
-Zombie* zombieHorde(int N, std::string name)
-{
-	Zombie	*horde;
-	
-	horde = new Zombie[N];
-	if(!horde)
-		return NULL;
-	for(int i = 0; i < N; i++){
-		horde[i].setName(name, i);
-	}
-	return horde;
+
+//============CONSTRUCTOR=========//
+HumanB::HumanB(std::string name):_name(name){
+}
+
+//============DESTRUCTOR=========//
+HumanB::~HumanB(){}
+
+//============METHOD=========//
+void HumanB::attack(){
+	std::cout<< GREEN << this->_name <<RED<<" attacks with their "
+			 << LILA << this->_weapon->getType() << std::endl;
+}
+void HumanB::setWeapon(Weapon &weapon){
+		this->_weapon = &weapon;
 }

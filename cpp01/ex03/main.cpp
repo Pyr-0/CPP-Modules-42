@@ -6,28 +6,30 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 22:36:21 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/06 23:45:15 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/13 16:08:25 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
+#include "HumanB.hpp"
+#include "HumanA.hpp"
 
-void	func()
+int main()
 {
-	Zombie	*horde;
-	
-	horde = NULL;
-	horde = zombieHorde(15, "Moar");
-	for(int i = 0; i < 15; i++){
-		horde[i].announce();
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
 	}
-	delete [] horde;
-}
-
-int	main(void)
-{
-
-	func();
-	//system("leaks zombie");
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 	return 0;
 }
