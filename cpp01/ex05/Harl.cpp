@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 19:28:42 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/19 20:25:13 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/19 22:00:15 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 Harl::Harl(){}
 Harl::~Harl(){}
+
 void	Harl::debug(void){
 	std::cout<< "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" 
 			 << std::endl;
 }
+
 void	Harl::info(void){
 	std::cout<<"I cannot believe adding extra bacon costs more money."
 			 <<"You didn't putenough bacon in my burger! If you did, I wouldn't be asking for more!"
@@ -47,7 +49,7 @@ void	Harl::complain(std::string word){
 		&Harl::error		//adress of func stored at position 3 of array
 	};
 	
-	//iteration logic 
+	//iteration logic
 	
 	for(int i = 0; i < 4; i++){
 		if(string_array[i] == word)
