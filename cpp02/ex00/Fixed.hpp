@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:52:17 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/20 22:04:30 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/21 18:53:29 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class	Fixed{
 		~Fixed(void);
 
 		Fixed&				operator=( Fixed const & rightSide );
-		void				getRawBits(void) const;
+		int				getRawBits(void) const;
 		void				setRawBits(int const raw);
 
 };
