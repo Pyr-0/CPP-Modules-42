@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/05 12:15:15 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/18 16:41:50 by mrojas-e         ###   ########.fr       */
+/*   Created: 2022/08/20 17:58:32 by mrojas-e          #+#    #+#             */
+/*   Updated: 2022/08/20 20:13:24 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-#define HUMANA_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
+# include <iostream>
+# include <string>
 
-#include "Weapon.hpp"
-
-//============COLORS!=======//
-#define			RED "\e[31m"
-#define			GREEN "\e[32m"
-#define			LILA "\e[35m"
-#define			RESET "\e[0m"
-
-class	HumanA{
-	private:
-
-	Weapon	&_weapon;
-	std::string	_name;
+class Fixed
+{
 
 	public:
 
-	HumanA(std::string name, Weapon &weapon);
-	~HumanA();
+		Fixed();
+		Fixed( Fixed const & src );
+		~Fixed();
 
-	void attack();
+		Fixed &		operator=( Fixed const & rhs );
+
+	private:
+
 };
 
-HumanA	*newHumanA(std::string name);
-void	randomChump(std::string name);
+std::ostream &			operator<<( std::ostream & o, Fixed const & i );
 
-#endif
+#endif /* *********************************************************** FIXED_H */
