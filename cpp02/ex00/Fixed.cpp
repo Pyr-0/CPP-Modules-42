@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:52:21 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/21 19:11:05 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/23 20:00:02 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Fixed&	Fixed::operator=( const Fixed& rightSideOfOperator ){
 void	Fixed::setRawBits(int const rawBits){
 	std::cout<<BLUE<<"getRawBits member function called"<<RESET<< std::endl;
 	_value = rawBits;
-}	
+}
 
 int		Fixed::getRawBits(void)const{
 	std::cout<<BLUE<<"getRawBits member function called"<<RESET<< std::endl;

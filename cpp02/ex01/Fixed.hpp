@@ -5,32 +5,51 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/20 17:58:32 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/20 20:13:24 by mrojas-e         ###   ########.fr       */
+/*   Created: 2022/08/20 17:52:17 by mrojas-e          #+#    #+#             */
+/*   Updated: 2022/08/23 20:21:58 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef FIXED_HPP
-# define FIXED_HPP
+#define FIXED_HPP
 
 # include <iostream>
 # include <string>
 
-class Fixed
-{
+//============COLORS!=======//
+#define						RED "\e[31m"
+#define						GREEN "\e[32m"
+#define						BLUE "\e[36m"
+#define						LILA "\e[35m"
+#define						YLLW "\e[33m"
+#define						RESET "\e[0m"
 
-	public:
 
-		Fixed();
-		Fixed( Fixed const & src );
-		~Fixed();
-
-		Fixed &		operator=( Fixed const & rhs );
+class	Fixed{
 
 	private:
 
+		int					_value;
+		static const int	_nFractionalBits = 8;
+
+	public:
+
+		Fixed(void);
+		Fixed(Fixed const int i);
+		Fixed(Fixed const float f);
+		Fixed(Fixed const & src);
+		~Fixed(void);
+
+		float				toFloat(void);
+		int					toInt(void);
+		Fixed&				operator=( Fixed const & rightSide );
+		int					getRawBits(void) const;
+		void				setRawBits(int const raw);
+
 };
 
-std::ostream &			operator<<( std::ostream & o, Fixed const & i );
+std::ostream &			operator<<( std::ostream & output, Fixed const & input );
 
-#endif /* *********************************************************** FIXED_H */
+
+#endif
