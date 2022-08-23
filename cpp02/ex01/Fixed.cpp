@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:52:21 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/23 20:40:38 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/23 23:56:01 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ Fixed::Fixed(): _value(0){
 	std::cout <<YLLW<< "Default constructor called"<<RESET<< std::endl;
 }
 
-Fixed(const int i){ //making fixed points out of an int
-	std::cout << "Int constructor called\n";
-	this->_value = i << _nb_fractional_bits;
-
+Fixed::Fixed(const int i){ //making fixed points out of an int
+	std::cout << "Int constructor called"<< std::endl;
+	this->_value = i << this->_nFractionalBits;
 }
-Fixed(const float f){//making fixed points out of an float
-	std::cout << "Float constructor called\n";
-	this->_value = roundf(f * (float)(1 << _nb_fractional_bits));
+
+Fixed::Fixed(const float f){//making fixed points out of an float
+	std::cout << "Float constructor called";
+	this->_value = roundf(f * (float)(1 << _nFractionalBits));
 }
 
 //===================== COPY CONSTRUCTOR ======================//
@@ -41,20 +41,36 @@ Fixed::~Fixed(void){
 		std::cout<<RED<< "Destructor called"<<RESET<< std::endl;
 }
 
+//================================= METHODS=================================//
+
+
+int Fixed::toInt(void)const{
+	int	ret;
+
+	ret = _value / (1 << _nFractionalBits);
+	return ret;
+}
+float	Fixed::toFloat(void)const{
+	float	ret;
+	
+	ret = (float)_value / (float)(1 << _nFractionalBits);
+	return ret;
+}
+
 //================================= OVERLOAD =================================//
 
-Fixed&	Fixed::operator=( const Fixed& rightSideOfOperator ){
+Fixed&	Fixed::operator=( const Fixed & rightSideOfOperator ){
 
-	std::cout<<GREEN << "Copy assignment operator is called." <<RESET<< std::endl;
+	std::cout<<GREEN << "Copy assignment operator  overload is called." <<RESET<< std::endl;
 	if ( this == &rightSideOfOperator )
 		return (*this);//check if they are already the same aka self-assignment
 	this->_value = rightSideOfOperator.getRawBits();
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & output, Fixed const & input )
+std::ostream &			operator<<( std::ostream & output, Fixed const & i )
 {
-	output << "Value = " << input.toFloat();
+	output << "Value = " << i.toFloat();
 	return output;
 }
 
@@ -69,20 +85,4 @@ void	Fixed::setRawBits(int const rawBits){
 int		Fixed::getRawBits(void)const{
 	std::cout<<BLUE<<"getRawBits member function called"<<RESET<< std::endl;
 	return _value;
-}
-
-//================================= METHODS=================================//
-
-
-int		toInt(void){
-	int	ret;
-
-	ret = _fvalue / (1 << _nb_fractional_bits);
-	return ret;
-}
-float	toFloat(void){
-	float	ret;
-	
-	ret = (float)_value / (float)(1 << _nb_fractional_bits)
-	return ret
 }

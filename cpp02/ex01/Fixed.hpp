@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:52:17 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/23 20:21:58 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/23 23:54:00 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # include <iostream>
 # include <string>
+# include <cmath>
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -36,20 +37,20 @@ class	Fixed{
 	public:
 
 		Fixed(void);
-		Fixed(Fixed const int i);
-		Fixed(Fixed const float f);
-		Fixed(Fixed const & src);
+		Fixed( int const i);
+		Fixed( float const f);
+		Fixed(Fixed const & alreadyExistingObject);
 		~Fixed(void);
 
-		float				toFloat(void);
-		int					toInt(void);
-		Fixed&				operator=( Fixed const & rightSide );
-		int					getRawBits(void) const;
+		float				toFloat(void)const;
+		int					toInt(void)const;
+		Fixed&				operator=( const Fixed & rightSideOfOperator );
 		void				setRawBits(int const raw);
+		int					getRawBits(void) const;
 
 };
 
-std::ostream &			operator<<( std::ostream & output, Fixed const & input );
+std::ostream &			operator<<( std::ostream & output, Fixed const & i );
 
 
 #endif
