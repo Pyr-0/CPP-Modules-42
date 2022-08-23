@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:52:17 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/24 00:20:07 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/24 00:31:52 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,25 @@ class	Fixed{
 		Fixed&				operator=( const Fixed & rightSideOfOperator );
 		void				setRawBits(int const raw);
 		int					getRawBits(void) const;
+		static Fixed&		min( Fixed &lhs, Fixed& rhs );
+		static Fixed const&	min( Fixed const&lhs, Fixed const& rhs );
+		static Fixed&		max( Fixed &lhs, Fixed& rhs );
+		static Fixed const&	max( Fixed const&lhs, Fixed const& rhs );
+
+		bool				operator>( Fixed const& rhs ) const;
+		bool				operator<( Fixed const& rhs ) const;
+		bool				operator>=( Fixed const& rhs ) const;
+		bool				operator<=( Fixed const& rhs ) const;
+		bool				operator==( Fixed const& rhs ) const;
+		bool				operator!=( Fixed const& rhs ) const;
+		Fixed				operator+( Fixed const& rhs ) const;
+		Fixed				operator-( Fixed const& rhs ) const;
+		Fixed				operator*( Fixed const& rhs ) const;
+		Fixed				operator/( Fixed const& rhs ) const;
+		Fixed&				operator++();
+		Fixed&				operator--();
+		Fixed				operator++(int);
+		Fixed				operator--(int);
 
 };
 
