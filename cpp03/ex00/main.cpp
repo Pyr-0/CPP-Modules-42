@@ -5,22 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/20 20:02:08 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/24 17:22:17 by mrojas-e         ###   ########.fr       */
+/*   Created: 2022/08/24 19:22:33 by mrojas-e          #+#    #+#             */
+/*   Updated: 2022/08/24 20:14:27 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
 
-#include "Fixed.hpp"
+int	main(){
 
-int main( void ) {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-
-	return (0);
+	ClapTrap	clapTrap("dude");
+	ClapTrap	victim("bob");
+	ClapTrap 	clapTrap2(clapTrap);
+	
+	clapTrap.attack(victim.getName());
+	victim.takeDamage(clapTrap.getAttackDamage());
+	std::cout<< victim << std::endl;
+	victim.beRepaired(3);
+	std::cout<< victim<< std::endl;
+	
+	clapTrap.attack(victim.getName());
+	victim.takeDamage(clapTrap.getAttackDamage());
+	std::cout<< victim << std::endl;
+	victim.beRepaired(3);
+	std::cout<< victim<< std::endl;
 }

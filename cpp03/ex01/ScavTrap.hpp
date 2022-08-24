@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   scavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/20 17:52:17 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/24 17:34:39 by mrojas-e         ###   ########.fr       */
+/*   Created: 2022/08/24 20:57:40 by mrojas-e          #+#    #+#             */
+/*   Updated: 2022/08/24 21:02:54 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
-
+#include "ClapTrap.hpp"
 # include <iostream>
 # include <string>
-# include <cmath>
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -26,29 +25,21 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-class	Fixed{
-
-	private:
-
-		int					_value;
-		static const int	_nFractionalBits = 8;
-
+class ScavTrap: public ClapTrap{
+	
+	
 	public:
 
-		Fixed(void);
-		Fixed(const int i);
-		Fixed(const float f);
-		Fixed(const Fixed& alreadyExistingObject);
-		~Fixed(void);
-
-		float				toFloat(void)const;
-		int					toInt(void)const;
-		Fixed&				operator=( const Fixed & rightSideOfOperator );
-		void				setRawBits(const int rawBits);
-		int					getRawBits(void) const;
-
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& ScavTrap);
+		~ScavTrap();
+	
+		ScavTrap&		operator=( ScavTrap const & rhs );
+		void guardGate();
+		void attack(const std::string& target);
 };
 
-std::ostream &				operator<<( std::ostream & output, Fixed const & i );
+std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );
 
-#endif
+#endif /* ******************************************************** ScavTrap_H */
