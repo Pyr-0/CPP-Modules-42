@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:56:49 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/25 12:22:26 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/25 12:59:43 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 
 //============================== CONSTRUCTOR ================================//
 
-ScavTrap::ScavTrap():ClapTrap(){
+FragTrap::FragTrap():ScavTrap(){
 	
 	std::cout<<RED<< "ScavTrap constructor called"<<RESET<< std::endl;
 	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 }
 
-ScavTrap::ScavTrap(std::string name ) :ClapTrap(name){
-	std::cout<<RED<< "ScavTrap String constructor called"<<RESET<< std::endl;
+FragTrap::FragTrap(std::string name ) :ScavTrap(name){
+	std::cout<<RED<< "FragTrap String constructor called"<<RESET<< std::endl;
 	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 }
 
-ScavTrap::ScavTrap( const ScavTrap & src ): ClapTrap(src){
-	std::cout <<GREEN<< "ScavTrap Copy constructor called"<< RESET<<std::endl;
+FragTrap::FragTrap( const FragTrap & src ): ScavTrap(src){
+	std::cout <<GREEN<< "FragTrap Copy constructor called"<< RESET<<std::endl;
 		this->_attackDamage = src._attackDamage;
 		this->_energyPoints = src._energyPoints;
 		this->_hitPoints = src._hitPoints;
@@ -40,14 +40,14 @@ ScavTrap::ScavTrap( const ScavTrap & src ): ClapTrap(src){
 
 //=============================== DESTRUCTOR ================================//
 
-ScavTrap::~ScavTrap(){
+FragTrap::~FragTrap(){
 	
-	std::cout<<RED<< "ScavTrap Destructor called"<<RESET<< std::endl;
+	std::cout<<RED<< "FragTrap Destructor called"<<RESET<< std::endl;
 }
 
 //================================ OVERLOAD =================================//
 
-ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
+FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -60,26 +60,17 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
+std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
 {
 	o << "Name = " << i.getName();
-	o << "Attack Damage = " << i.getAttackDamage();
-	o << "Energy Points = " << i.getenergyPoints();
-	o << "Hit Points = " << i.gethitPoints();
+	o << " Attack Damage = " << i.getAttackDamage();
+	o << " Energy Points = " << i.getenergyPoints();
+	o << " Hit Points = " << i.gethitPoints();
 	return o;
 }
 //================================ METHODS =================================//
 
-void ScavTrap::attack (const std::string& target){
-	
-	if(this->_hitPoints > 0 && this->_energyPoints > 0)
-	{
-		std::cout <<YLLW<< "Scavtrap "<< this->_name<< " attacks "<< target<<" causing "<< this->_attackDamage << " points of damage!"<<RESET<< std::endl;
-		this->_energyPoints--;
-	}
-}
-
-void ScavTrap::guardGate(){
-		std::cout <<YLLW<< "Scavtrap " << this->_name<< "is now in Gate Keeper Mode"<< std::endl;
+void FragTrap::highFivesGuys(void){
+		std::cout <<YLLW<< "Fragtrap "<< this->_name<< " Gives you a HIGH FIVE!!"<< std::endl;
 }
 

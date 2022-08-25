@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:21:57 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/25 12:21:01 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/25 12:59:10 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap():_name("undefined"),_hitPoints(10), _attackDamage(0), _energ
 }
 
 ClapTrap::ClapTrap(std::string name ): _name(name), _hitPoints(10), _attackDamage(0), _energyPoints(10){
-	std::cout<<RED<< "ClapTrapString constructor called"<<RESET<< std::endl;
+	std::cout<<RED<< "ClapTrap String constructor called"<<RESET<< std::endl;
 	
 }
 
@@ -54,9 +54,9 @@ ClapTrap&				ClapTrap::operator=( ClapTrap const & rhs )
 std::ostream &		operator<<( std::ostream & o, ClapTrap const & i )
 {
 	o << "Name = " << i.getName();
-	o << "Attack Damage = " << i.getAttackDamage();
-	o << "Energy Points = " << i.getenergyPoints();
-	o << "Hit Points = " << i.gethitPoints();
+	o << " Attack Damage = " << i.getAttackDamage();
+	o << " Energy Points = " << i.getenergyPoints();
+	o << " Hit Points = " << i.gethitPoints();
 	return o;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:56:49 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/25 12:22:26 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/25 12:59:27 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
 {
 	o << "Name = " << i.getName();
-	o << "Attack Damage = " << i.getAttackDamage();
-	o << "Energy Points = " << i.getenergyPoints();
-	o << "Hit Points = " << i.gethitPoints();
+	o << " Attack Damage = " << i.getAttackDamage();
+	o << " Energy Points = " << i.getenergyPoints();
+	o << " Hit Points = " << i.gethitPoints();
 	return o;
 }
 //================================ METHODS =================================//
