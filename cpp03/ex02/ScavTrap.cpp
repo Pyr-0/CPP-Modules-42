@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:56:49 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/25 12:59:27 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:32:47 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,31 +55,38 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 		this->_attackDamage = rhs._attackDamage;
 		this->_energyPoints = rhs._energyPoints;
 		this->_hitPoints = rhs._hitPoints;
-		
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
+std::ostream &		operator<<( std::ostream & o, ScavTrap const & i )
 {
-	o << "Name = " << i.getName();
-	o << " Attack Damage = " << i.getAttackDamage();
-	o << " Energy Points = " << i.getenergyPoints();
-	o << " Hit Points = " << i.gethitPoints();
+	o <<GREEN<<ULINE<<"[STATUS REPORT]"<<RESET<<std::endl;
+	o << "Name = " <<GREEN<< i.getName()<< RESET;
+	o << " | Attack Damage = " << GREEN<< i.getAttackDamage()<<RESET;
+	o << " | Energy Points = " << GREEN<< i.getenergyPoints()<<RESET;
+	o << " | Hit Points = " <<GREEN<< i.gethitPoints()<<RESET;
 	return o;
 }
 //================================ METHODS =================================//
 
+void ScavTrap::cannotDoTheThing() const{
+	if (_hitPoints < 0)
+		std::cout <<LILA<< "Scavtrap "<< this->_name<< " IS DEAD! 💀" RESET<< std::endl;
+	else if (_energyPoints <= 0)
+		std::cout <<LILA<< "Scavtrap "<< this->_name<< " HAS NO MORE ENERGY POINTS! ❌🔋" RESET<< std::endl;
+}
+
 void ScavTrap::attack (const std::string& target){
 	
-	if(this->_hitPoints > 0 && this->_energyPoints > 0)
+	if(_hitPoints > 0  &&_energyPoints > 0)
 	{
-		std::cout <<YLLW<< "Scavtrap "<< this->_name<< " attacks "<< target<<" causing "<< this->_attackDamage << " points of damage!"<<RESET<< std::endl;
-		this->_energyPoints--;
+		std::cout <<YLLW<< "ScavTrap "<< this->_name<<" attacks "<< target<<" causing "<< _attackDamage << " points of damage! [⚔️💥]"<<RESET<< std::endl;
+		_energyPoints--;
 	}
+	cannotDoTheThing();
 }
 
 void ScavTrap::guardGate(){
-		std::cout <<YLLW<< "Scavtrap " << this->_name<< "is now in Gate Keeper Mode"<< std::endl;
+		std::cout <<BLUE<< "Scavtrap " << this->_name<< " is now in Gate Keeper Mode 🚪"<< std::endl;
 }
-

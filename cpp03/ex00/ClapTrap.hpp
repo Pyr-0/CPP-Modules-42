@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:22:01 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/24 20:09:05 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/28 18:23:03 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@
 #define						LILA "\e[35m"
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
+#define						ULINE "\e[4m\e[1m"
 
 class ClapTrap
 {
 
 	private:
 		std::string		_name;
-		unsigned int	_hitPoints;
-		unsigned int	_attackDamage;
-		unsigned int	_energyPoints;
-
+		int	_hitPoints;
+		int	_attackDamage;
+		int	_energyPoints; 
 		
 	public:
 
@@ -43,18 +43,17 @@ class ClapTrap
 
 		ClapTrap&		operator=( ClapTrap const & rhs );
 
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		void		attack(const std::string& target);
+		void		takeDamage(unsigned int amount);
+		void		beRepaired(unsigned int amount);
+		void		cannotDoTheThing() const;
 		
-		std::string		getName() const;
-		unsigned int			getAttackDamage() const;
-		unsigned int			gethitPoints() const;
-		unsigned int			getenergyPoints() const;
-		
-
+		std::string	getName() const;
+		int			getAttackDamage() const;
+		int			gethitPoints() const;
+		int			getenergyPoints() const;
 };
 
 std::ostream &			operator<<( std::ostream & o, ClapTrap const & i );
 
-#endif /* ******************************************************** CLAPTRAP_H */
+#endif

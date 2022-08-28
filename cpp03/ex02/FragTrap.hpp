@@ -6,13 +6,14 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:57:40 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/25 12:57:41 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/28 20:26:34 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 # include <iostream>
 # include <string>
@@ -25,7 +26,7 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-class FragTrap: public ScavTrap{
+class FragTrap: public ClapTrap{
 
 	public:
 

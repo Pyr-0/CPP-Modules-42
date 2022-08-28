@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:57:40 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/24 21:02:54 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/28 20:13:44 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include <string>
 
 //============COLORS!=======//
-#define						RED "\e[31m"
-#define						GREEN "\e[32m"
-#define						BLUE "\e[36m"
-#define						LILA "\e[35m"
-#define						YLLW "\e[33m"
-#define						RESET "\e[0m"
+#define				RED "\e[31m"
+#define				GREEN "\e[32m"
+#define				BLUE "\e[36m"
+#define				LILA "\e[35m"
+#define				YLLW "\e[33m"
+#define				RESET "\e[0m"
 
 class ScavTrap: public ClapTrap{
 	
@@ -35,11 +35,11 @@ class ScavTrap: public ClapTrap{
 		ScavTrap(const ScavTrap& ScavTrap);
 		~ScavTrap();
 	
-		ScavTrap&		operator=( ScavTrap const & rhs );
-		void guardGate();
-		void attack(const std::string& target);
+		ScavTrap&	operator=( ScavTrap const & rhs );
+		void		guardGate();
+		void		attack(const std::string& target);
 };
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );
+std::ostream &		operator<<( std::ostream & o, ScavTrap const & i );
 
-#endif /* ******************************************************** ScavTrap_H */
+#endif

@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:56:49 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/25 12:59:43 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/28 19:05:18 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 //============================== CONSTRUCTOR ================================//
 
-FragTrap::FragTrap():ScavTrap(){
+FragTrap::FragTrap():ClapTrap(){
 	
-	std::cout<<RED<< "ScavTrap constructor called"<<RESET<< std::endl;
+	std::cout<<RED<< "FragTrap constructor called"<<RESET<< std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
 }
 
-FragTrap::FragTrap(std::string name ) :ScavTrap(name){
+FragTrap::FragTrap(std::string name ) :ClapTrap(name){
 	std::cout<<RED<< "FragTrap String constructor called"<<RESET<< std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
 }
 
-FragTrap::FragTrap( const FragTrap & src ): ScavTrap(src){
+FragTrap::FragTrap( const FragTrap & src ): ClapTrap(src){
 	std::cout <<GREEN<< "FragTrap Copy constructor called"<< RESET<<std::endl;
 		this->_attackDamage = src._attackDamage;
 		this->_energyPoints = src._energyPoints;
@@ -55,22 +55,22 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 		this->_attackDamage = rhs._attackDamage;
 		this->_energyPoints = rhs._energyPoints;
 		this->_hitPoints = rhs._hitPoints;
-		
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
+std::ostream &		operator<<(std::ostream & o, FragTrap const & i)
 {
-	o << "Name = " << i.getName();
-	o << " Attack Damage = " << i.getAttackDamage();
-	o << " Energy Points = " << i.getenergyPoints();
-	o << " Hit Points = " << i.gethitPoints();
+	o <<GREEN<<ULINE<<"[STATUS REPORT]"<<RESET<<std::endl;
+	o << "Name = " <<GREEN<< i.getName()<< RESET;
+	o << " | Attack Damage = " << GREEN<< i.getAttackDamage()<<RESET;
+	o << " | Energy Points = " << GREEN<< i.getenergyPoints()<<RESET;
+	o << " | Hit Points = " <<GREEN<< i.gethitPoints()<<RESET;
 	return o;
 }
+
 //================================ METHODS =================================//
 
 void FragTrap::highFivesGuys(void){
-		std::cout <<YLLW<< "Fragtrap "<< this->_name<< " Gives you a HIGH FIVE!!"<< std::endl;
+		std::cout <<BLUE<< "Fragtrap "<< this->_name<< " Gives you a HIGH FIVE!! ✋"<< std::endl;
 }
-

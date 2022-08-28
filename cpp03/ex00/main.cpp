@@ -6,27 +6,60 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:22:33 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/24 20:14:27 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/28 19:27:54 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-int	main(){
+void 	test1()
+{
+	std::cout<<ULINE<<"First test, creating 3 ClapTraps and testing Raw functions\n"<<RESET<<std::endl;
+	ClapTrap	victim;
+	ClapTrap	clapTrap("Dude");
+	ClapTrap 	claptrapCopy(clapTrap);
 
-	ClapTrap	clapTrap("dude");
-	ClapTrap	victim("bob");
-	ClapTrap 	clapTrap2(clapTrap);
-	
 	clapTrap.attack(victim.getName());
 	victim.takeDamage(clapTrap.getAttackDamage());
-	std::cout<< victim << std::endl;
-	victim.beRepaired(3);
+	victim.beRepaired(2);
 	std::cout<< victim<< std::endl;
+	std::cout<< clapTrap << std::endl;
+}
+
+void	test2()
+{
+	std::cout<<ULINE<<"Second test, test if Dead or out of energy\n"<<RESET<<std::endl;
+	ClapTrap Thor("Thor");
+	ClapTrap Loki("Loki");
+
+	Thor.attack("Loki");
+	Loki.takeDamage(3);
+	Thor.attack("Loki");
+	Loki.takeDamage(3);
+	Thor.attack("Loki");
+	Loki.takeDamage(3);
+	Loki.beRepaired(1);
+	Loki.beRepaired(1);
+	Loki.beRepaired(1);
+	Loki.beRepaired(1);
+	Loki.beRepaired(1);
+	Loki.beRepaired(1);
+	Loki.beRepaired(1);
+	Loki.beRepaired(1);
+	Loki.beRepaired(1);
+	Thor.beRepaired(2);
+	std::cout<< Thor<< std::endl;
+	std::cout<< Loki<< std::endl;
+	Thor.attack("Loki");
+	Loki.takeDamage(9);
+	Loki.attack("Thor");
+	Thor.attack("Loki");
+	Loki.takeDamage(2);
+	std::cout<< Thor<< std::endl;
+	std::cout<< Loki<< std::endl;
+}
+int	main(){
 	
-	clapTrap.attack(victim.getName());
-	victim.takeDamage(clapTrap.getAttackDamage());
-	std::cout<< victim << std::endl;
-	victim.beRepaired(3);
-	std::cout<< victim<< std::endl;
+	test1();
+	//test2();
 }

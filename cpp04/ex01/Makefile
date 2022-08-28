@@ -6,17 +6,17 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/08/28 20:06:03 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/08/26 10:35:31 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	scavtrap
+NAME 		=	animal
 CC_FLAGS	=	-Wall -Werror -Wextra -std=c++98
 
 CC_FLAGS += -g
 RM			=	rm -rf
 DIR_OBJS	=	./obj/
-SRC			=	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC			=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS 		=	$(SRC:%.cpp=$(DIR_OBJS)%.o)
 
 all:			$(NAME)
@@ -25,7 +25,7 @@ $(NAME):		$(OBJS)
 				@tput setaf 05 && printf "*********************************\n"
 				@tput setaf 05 && printf "* Sources Succesfully Compiled! *\n"
 				@$(CXX) $(CC_FLAGS) $(OBJS) -o $(NAME)
-				@tput setaf 013 && printf "* Executable $(NAME) created   *\n"
+				@tput setaf 013 && printf "*      $(NAME) created.       *\n"
 				@tput setaf 05 && printf "*********************************\n"
 
 $(OBJS):		$(DIR_OBJS)

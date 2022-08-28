@@ -1,21 +1,21 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 20:57:40 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/28 20:31:17 by mrojas-e         ###   ########.fr       */
+/*   Created: 2022/08/26 07:44:10 by mrojas-e          #+#    #+#             */
+/*   Updated: 2022/08/26 08:06:08 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include "ClapTrap.hpp"
-# include <iostream>
-# include <string>
+#include <iostream>
+#include "Animal.hpp"
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -25,23 +25,21 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-class ScavTrap: public ClapTrap{
-	
+class Cat:public Animal{
+
+	private:
+		std::string	_type;
 	
 	public:
-
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& ScavTrap);
-		~ScavTrap();
-	
-		ScavTrap&		operator=( ScavTrap const & rhs );
-		void guardGate();
-		void attack(const std::string& target);
-		void			cannotDoTheThing() const;
-
+		
+		Cat(); //Constructor
+		~Cat(); //Destructor
+		Cat(Cat& ref);// Copy
+		
+		Cat&				operator=(const Cat& rhs); //Overload
+		
+		std::string	getType()const; //Overrided from virtual
+		void		makeSound()const;//Overrided from virtual
 };
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );
-
-#endif /* ******************************************************** ScavTrap_H */
+#endif

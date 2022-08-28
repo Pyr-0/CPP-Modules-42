@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 20:57:40 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/28 20:31:17 by mrojas-e         ###   ########.fr       */
+/*   Created: 2022/08/26 07:44:10 by mrojas-e          #+#    #+#             */
+/*   Updated: 2022/08/26 08:06:08 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-#include "ClapTrap.hpp"
-# include <iostream>
-# include <string>
+#include <iostream>
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -25,23 +23,21 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-class ScavTrap: public ClapTrap{
-	
+class Animal{
+
+	private:
+		std::string	_type;
 	
 	public:
-
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& ScavTrap);
-		~ScavTrap();
-	
-		ScavTrap&		operator=( ScavTrap const & rhs );
-		void guardGate();
-		void attack(const std::string& target);
-		void			cannotDoTheThing() const;
-
+		
+		Animal(); //Constructor
+		virtual ~Animal(); //Destructor
+		Animal(Animal& ref);// Copy
+		
+		Animal&				operator=(const Animal& rhs); //Overload
+		
+		virtual std::string	getType()const;
+		virtual void		makeSound()const;
 };
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );
-
-#endif /* ******************************************************** ScavTrap_H */
+#endif

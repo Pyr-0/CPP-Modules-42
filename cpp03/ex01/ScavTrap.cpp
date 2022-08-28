@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:56:49 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/25 12:22:26 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/28 20:12:57 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 ScavTrap::ScavTrap():ClapTrap(){
 	
-	std::cout<<RED<< "ScavTrap constructor called"<<RESET<< std::endl;
+	std::cout<<RED<< "ScavTrap Default constructor called"<<RESET<< std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
@@ -35,7 +35,6 @@ ScavTrap::ScavTrap( const ScavTrap & src ): ClapTrap(src){
 		this->_attackDamage = src._attackDamage;
 		this->_energyPoints = src._energyPoints;
 		this->_hitPoints = src._hitPoints;
-		
 }
 
 //=============================== DESTRUCTOR ================================//
@@ -47,7 +46,7 @@ ScavTrap::~ScavTrap(){
 
 //================================ OVERLOAD =================================//
 
-ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
+ScavTrap &			ScavTrap::operator=( ScavTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -60,12 +59,13 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
+std::ostream &		operator<<( std::ostream & o, ScavTrap const & i )
 {
-	o << "Name = " << i.getName();
-	o << "Attack Damage = " << i.getAttackDamage();
-	o << "Energy Points = " << i.getenergyPoints();
-	o << "Hit Points = " << i.gethitPoints();
+	o <<GREEN<<ULINE<<"[STATUS REPORT]"<<RESET<<std::endl;
+	o << "Name = " <<GREEN<< i.getName()<< RESET;
+	o << " | Attack Damage = " << GREEN<< i.getAttackDamage()<<RESET;
+	o << " | Energy Points = " << GREEN<< i.getenergyPoints()<<RESET;
+	o << " | Hit Points = " <<GREEN<< i.gethitPoints()<<RESET;
 	return o;
 }
 //================================ METHODS =================================//
@@ -74,12 +74,11 @@ void ScavTrap::attack (const std::string& target){
 	
 	if(this->_hitPoints > 0 && this->_energyPoints > 0)
 	{
-		std::cout <<YLLW<< "Scavtrap "<< this->_name<< " attacks "<< target<<" causing "<< this->_attackDamage << " points of damage!"<<RESET<< std::endl;
+		std::cout <<YLLW<< "Scavtrap "<< this->_name<<" attacks "<< target<<" causing "<< this->_attackDamage << " points of damage! [⚔️💥]"<<RESET<< std::endl;
 		this->_energyPoints--;
 	}
 }
 
 void ScavTrap::guardGate(){
-		std::cout <<YLLW<< "Scavtrap " << this->_name<< "is now in Gate Keeper Mode"<< std::endl;
+		std::cout <<BLUE<< "Scavtrap " << this->_name<< " is now in Gate Keeper Mode 🚪"<< std::endl;
 }
-
