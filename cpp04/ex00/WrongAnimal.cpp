@@ -26,15 +26,15 @@ WrongAnimal::WrongAnimal(WrongAnimal & ref){
 	std::cout<<GREEN<<"WrongAnimal Copy Was Constructed"<<RESET<<std::endl;
 }
 
-WrongAnimal&		WrongAnimal::operator=(const WrongAnimal& rhs){
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& rhs){
 	this->_type = rhs._type;
 	return (*this);
 }
 
-void		WrongAnimal::makeSound()const{
+void			WrongAnimal::makeSound()const{
 	std::cout<<YLLW<<"( ( (. . . Generic WrongAnimal sound . . .) ) )"<<RESET<<std::endl;
 }
 
-std::string	WrongAnimal::getType()const{
+std::string		WrongAnimal::getType()const{
 	return(this->_type);
 }
