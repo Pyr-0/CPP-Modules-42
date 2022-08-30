@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:22:01 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/29 14:40:36 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/30 20:32:05 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,9 @@ class	DiamondTrap : public FragTrap, public ScavTrap {
 
 		DiamondTrap&		operator=( DiamondTrap const & rhs );
 
-		void				takeDamage(unsigned int amount);
-		void				attack(const std::string& target);
-		void				beRepaired(unsigned int amount);
 		
 		void				cannotDoTheThing() const;
-		std::string			getPrivateName(void);
+		std::string			getPrivateName(void)const;
 		void				whoAmI(void);
 
 };

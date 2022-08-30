@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:21:57 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/29 15:38:17 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/30 20:47:42 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap():_name("Default ClapTrap"),_hitPoints(10), _attackDamage(0),
 }
 
 ClapTrap::ClapTrap(std::string name ): _name(name), _hitPoints(10), _attackDamage(0), _energyPoints(10){
-	std::cout <<GREEN<< "ClapTrap "<<LILA<< this->_name << " String constructor called"<< RESET<<std::endl;
+	std::cout <<RED<< "ClapTrap "<<LILA<< this->_name <<RED<<" String constructor called"<< RESET<<std::endl;
 
 }
 
@@ -35,7 +35,7 @@ ClapTrap::ClapTrap( const ClapTrap & src )
 
 ClapTrap::~ClapTrap(){
 	
-	std::cout<<RED<< "ClapTrap "<<LILA<< this->_name << "Destructor called"<<RESET<< std::endl;
+	std::cout<<RED<< "ClapTrap "<<LILA<<this->_name<<RED<<" Destructor called"<<RESET<< std::endl;
 }
 
 //================================ OVERLOAD =================================//
@@ -54,7 +54,7 @@ ClapTrap&			ClapTrap::operator=( ClapTrap const & rhs )
 
 std::ostream &		operator<<( std::ostream & o, ClapTrap const & i )
 {
-	o <<GREEN<<ULINE<<"[STATUS REPORT]"<<RESET<<std::endl;
+	o <<GREEN<<ULINE<<"\n[STATUS REPORT]"<<RESET<<std::endl;
 	o << "Name = " <<GREEN<< i.getName()<< RESET;
 	o << " | Attack Damage = " << GREEN<< i.getAttackDamage()<<RESET;
 	o << " | Energy Points = " << GREEN<< i.getenergyPoints()<<RESET;

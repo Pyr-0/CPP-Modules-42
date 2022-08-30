@@ -6,17 +6,17 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/08/28 20:06:08 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/08/30 19:07:39 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	fragtrap
-CC_FLAGS	=	-Wall -Werror -Wextra -std=c++98
+NAME 		=	diamond
+CC_FLAGS	=	-Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
 
 CC_FLAGS += -g
 RM			=	rm -rf
 DIR_OBJS	=	./obj/
-SRC			=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC			=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJS 		=	$(SRC:%.cpp=$(DIR_OBJS)%.o)
 
 all:			$(NAME)

@@ -17,5 +17,5 @@ class ScavTrap: public virtual ClapTrap {
  ScavTrap& operator=( ScavTrap const& scav);
  ScavTrap( const ScavTrap& scav);
 };
- 
+
 #endif

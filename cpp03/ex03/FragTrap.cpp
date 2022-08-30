@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:56:49 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/28 19:05:18 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/30 19:52:00 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 FragTrap::FragTrap():ClapTrap(){
 	
-	std::cout<<RED<< "FragTrap constructor called"<<RESET<< std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
+	std::cout<<RED<< "FragTrap "<< this->_name <<" constructor called"<<RESET<< std::endl;
 }
 
 FragTrap::FragTrap(std::string name ) :ClapTrap(name){
-	std::cout<<RED<< "FragTrap String constructor called"<<RESET<< std::endl;
+	std::cout<<RED<< "FragTrap "<<LILA<<this->_name<<RED<<" String constructor called"<<RESET<< std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
@@ -35,14 +35,13 @@ FragTrap::FragTrap( const FragTrap & src ): ClapTrap(src){
 		this->_attackDamage = src._attackDamage;
 		this->_energyPoints = src._energyPoints;
 		this->_hitPoints = src._hitPoints;
-		
 }
 
 //=============================== DESTRUCTOR ================================//
 
 FragTrap::~FragTrap(){
 	
-	std::cout<<RED<< "FragTrap Destructor called"<<RESET<< std::endl;
+	std::cout<<RED<< "FragTrap "<<LILA<<this->_name<<RED<<" Destructor called"<<RESET<< std::endl;
 }
 
 //================================ OVERLOAD =================================//

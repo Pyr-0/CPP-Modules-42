@@ -1,16 +1,16 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile copy                                      :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/08/29 14:51:36 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/08/30 18:54:31 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	fragtrap
+NAME 		=	diamond
 CC_FLAGS	=	-Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
 CC_FLAGS += -g
 RM			=	rm -rf

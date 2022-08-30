@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:22:01 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/29 16:30:32 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/30 20:48:14 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ class ClapTrap
 
 	protected:
 		std::string		_name;
-		static int				_hitPoints;
-		static int				_attackDamage;
-		static int				_energyPoints;
+		int				_hitPoints;
+		int				_attackDamage;
+		int				_energyPoints;
 
 	public:
 

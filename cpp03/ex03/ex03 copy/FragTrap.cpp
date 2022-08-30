@@ -14,6 +14,9 @@ FragTrap::FragTrap( std::string name): ClapTrap(name) {
  std::cout << "FragTrap_Name : " << this->Name << std::endl;
 }
  
+FragTrap::FragTrap( const FragTrap& frag) {
+ *this = frag;
+}
 FragTrap::~FragTrap () {
  std::cout << "FragTrap " << this->Name << " has been destroyed." << std::endl;
 }
@@ -32,8 +35,5 @@ void FragTrap::highFivesGuys(void) {
  
 }
  
-FragTrap::FragTrap( const FragTrap& frag) {
- *this = frag;
-}
 
 
