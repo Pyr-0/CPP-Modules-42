@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:21:57 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/30 20:33:39 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:31:05 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 //============================== CONSTRUCTOR ================================//
 
 
-DiamondTrap::DiamondTrap():ClapTrap(), FragTrap(), ScavTrap()/* , _name(ClapTrap::_name) */{
+DiamondTrap::DiamondTrap():ClapTrap(), FragTrap(), ScavTrap(){
 
-	// ClapTrap::_name += "_clap_name";
-	// ClapTrap::_attackDamage = 30;
-	this->_name = getPrivateName(); //or this _name = "diamondtrap_default_name";
+	this->_name = getPrivateName();
+	//ClapTrap::_name += "_clap_name";
 	this->_hitPoints =  FragTrap(_name).gethitPoints();
 	this->_energyPoints = ScavTrap(_name).getenergyPoints();
 	this->_attackDamage = FragTrap(_name).getAttackDamage();
 	std::cout <<RED<< "DiamondTrap "<< _name << " Default constructor called"<<RESET<< std::endl;
-	// std::cout <<RED<< "DiamondTrap Default constructor called"<<RESET<< std::endl; ?? 
 }
 
 DiamondTrap::DiamondTrap(std::string name ): ClapTrap(name), FragTrap(name), ScavTrap(name), _name(name){
@@ -71,7 +69,7 @@ std::ostream &		operator<<( std::ostream & o, DiamondTrap const & i )
 //================================ METHODS ==================================//
 
 void  DiamondTrap :: whoAmI () {
-	std::cout <<RED<< "DiamondTrap name is " << this->_name << " and ClapTrap name is " << ClapTrap::_name << RESET<<std::endl;
+	std::cout <<ULINE<< "\nDiamondTrap name is " << this->_name << " and ClapTrap name is " << ClapTrap::_name <<"\n"<<RESET<<std::endl;
 }
 void DiamondTrap::cannotDoTheThing() const{
 	if (_hitPoints < 0)
@@ -80,16 +78,6 @@ void DiamondTrap::cannotDoTheThing() const{
 		std::cout <<LILA<< "DiamondTrap "<< this->_name<< " HAS NO MORE ENERGY POINTS! ❌🔋" RESET<< std::endl;
 }
 
-/* void DiamondTrap::attack (const std::string& target){
-
-	if(_hitPoints > 0  &&_energyPoints > 0)
-	{
-		//ScavTrap::attack(target);
-		std::cout <<YLLW<< "DiamondTrap "<<LILA<<this->_name<<YLLW<<"  attacks "<< target<<" causing "<< _attackDamage << " points of damage! [⚔️💥]"<<RESET<< std::endl;
-		_energyPoints--;
-	}
-	cannotDoTheThing();
-} */
- std::string DiamondTrap::getPrivateName() const {
+std::string DiamondTrap::getPrivateName() const {
 	return this->_name;
 }

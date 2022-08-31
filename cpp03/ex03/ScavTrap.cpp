@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 20:56:49 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/30 20:06:25 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:35:06 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ ScavTrap::ScavTrap( const ScavTrap& src ): ClapTrap(src){
 		this->_attackDamage = src._attackDamage;
 		this->_energyPoints = src._energyPoints;
 		this->_hitPoints = src._hitPoints;
-	//*this = src;
 }
 
 //=============================== DESTRUCTOR ================================//
@@ -49,7 +48,6 @@ ScavTrap::~ScavTrap(){
 
 ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
-	//ClapTrap::operator=(rhs);
 	if ( this != &rhs )
 	{	
 		this->_name = rhs._name;

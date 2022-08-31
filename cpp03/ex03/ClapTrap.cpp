@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:21:57 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/30 20:47:42 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:35:22 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ std::ostream &		operator<<( std::ostream & o, ClapTrap const & i )
 //================================ METHODS ==================================//
 
 void ClapTrap::cannotDoTheThing() const{
-	if (_hitPoints < 0)
+	if (_hitPoints <= 0)
 		std::cout <<LILA<< "Claptrap "<< this->_name<< " IS DEAD! 💀" RESET<< std::endl;
 	else if (_energyPoints <= 0)
 		std::cout <<LILA<< "Claptrap "<< this->_name<< " HAS NO MORE ENERGY POINTS! ❌🔋" RESET<< std::endl;
@@ -101,7 +101,6 @@ void ClapTrap::takeDamage (unsigned int amount){
 	}
 	cannotDoTheThing();
 }
-
 
 //================================ ACCESSOR =================================//
 

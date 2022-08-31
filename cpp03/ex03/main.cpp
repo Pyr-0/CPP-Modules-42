@@ -6,17 +6,12 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 19:22:33 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/30 20:48:33 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:33:53 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-
-/*	Scavtrap and FragTrap are derived clases from ClapTrap
-	therefore both their instances will inherit the functions 
-	of its base class, and thats why they will all still be
-	called Claptrap in the output */
 void	test1()
 {
 	std::string s1 = "Darth Vader";
@@ -27,12 +22,13 @@ void	test1()
 	// Constructors
 	std::cout<<GREEN<<ULINE<<"\n[CONSRUCTORS]\n"<<RESET<<std::endl;
 	DiamondTrap	diamondtrap(s4);
-	
 	std::cout<< diamondtrap<<std::endl;
+
 	// Repairs
 	std::cout<<GREEN<<ULINE<<"\n[REPAIRS]\n"<<RESET<<std::endl;
 	diamondtrap.takeDamage(14);
 	diamondtrap.beRepaired(18);
+	std::cout<< diamondtrap<<std::endl;
 
 	// New class attack until exhaustion
 	std::cout<<GREEN<<ULINE<<"\n[ATTACKS]\n"<<RESET<<std::endl;
@@ -41,31 +37,27 @@ void	test1()
 	diamondtrap.attack(s2);
 	diamondtrap.attack(s2);
 
-	// New class personal method call
+	// New class personal method call or Special functions
 	std::cout<<GREEN<<ULINE<<"\n[PERSONAL METHODS]\n"<<RESET<<std::endl;
 	diamondtrap.guardGate();
 	diamondtrap.highFivesGuys();
 
+	//Who Am I
+	std::cout<<GREEN<<ULINE<<"\n[WHO AM I]\n"<<RESET<<std::endl;
 	diamondtrap.whoAmI();
 
-	// Take damage
-	diamondtrap.takeDamage(50);
-
 	// Die
-	diamondtrap.takeDamage(50);
-
-	// Dstd::coutsomething after dying
-	diamondtrap.beRepaired(20);
-	diamondtrap.attack(s2);
+	diamondtrap.takeDamage(104);
+	std::cout<< diamondtrap<<std::endl;
 }
 
 void	test2()
 {
-	DiamondTrap	a("slee2");
+	DiamondTrap	a("Wall-E");
 	a.whoAmI();
 	
-	DiamondTrap	b("B");
-	DiamondTrap	c("C");
+	DiamondTrap	b("Optimus Prime");
+	DiamondTrap	c("Marvin");
 	
 	std::cout	<<	std::endl;
 	
@@ -108,6 +100,6 @@ void	test3()
 int	main(){
 
 	test1();
-	// test2();
+	//test2();
 	//test3();
 }
