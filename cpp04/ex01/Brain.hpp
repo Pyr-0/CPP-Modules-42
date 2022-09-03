@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:44:10 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/02 09:49:24 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/03 18:22:01 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@
 class Brain{
 
 	private:
-		std::string	_ideas[100];
+		std::string	*_ideas;
 	
 	public:
 		
 		Brain(); //Constructor
-		Brain(Brain& ref);// Copy
+		Brain(std::string idea);// Custom Constructor
+		Brain(const Brain& ref);// Copy
 		~Brain(); //Destructor
-		
-		Brain&				operator=(const Brain& rhs); //Overload
-		
-		std::string	getType()const;
-		void		makeSound()const;
+
+		Brain&		operator=(const Brain& rhs); //Overload
+		void		brainSound()const; // Method
+		std::string	*getIdeas()const; //Accessor
 };
 
 #endif

@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -28,18 +29,18 @@
 class Cat:public Animal{
 
 	private:
-		std::string	_type;
+		Brain*	_brain;
 	
 	public:
 		
 		Cat(); //Constructor
 		~Cat(); //Destructor
-		Cat(Cat& ref);// Copy
+		Cat(const Cat& ref);// Copy
 		
-		Cat&				operator=(const Cat& rhs); //Overload
+		Cat&		operator=(const Cat& rhs); //Overload
 		
-		std::string	getType()const; //Overrided from virtual
-		void		makeSound()const;//Overrided from virtual
+		void		makeSound()const;
+		void		think()const;
 };
 
 #endif

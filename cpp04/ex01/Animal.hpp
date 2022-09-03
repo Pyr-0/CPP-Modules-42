@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:44:10 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/26 08:06:08 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/03 18:39:42 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-class Animal{
+class	Animal{
 
-	private:
+	protected:
 		std::string	_type;
 	
 	public:
 		
 		Animal(); //Constructor
 		virtual ~Animal(); //Destructor
-		Animal(Animal& ref);// Copy
+		Animal(const Animal& ref);// Copy
 		
 		Animal&				operator=(const Animal& rhs); //Overload
 		

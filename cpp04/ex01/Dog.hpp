@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -28,15 +29,15 @@
 class Dog:public Animal{
 
 	private:
-		std::string	_type;
+		Brain		*_brain;
 	
 	public:
 		
 		Dog(); //Constructor
 		~Dog(); //Destructor
-		Dog(Dog& ref);// Copy
+		Dog(const Dog& ref);// Copy
 		
-		Dog&				operator=(const Dog& rhs); //Overload
+		Dog&		operator=(const Dog& rhs); //Overload
 		
 		std::string	getType()const; //Overrided from virtual
 		void		makeSound()const;//Overrided from virtual
