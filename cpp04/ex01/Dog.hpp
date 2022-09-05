@@ -14,7 +14,6 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include <iostream>
 #include "Animal.hpp"
 #include "Brain.hpp"
 
@@ -29,7 +28,7 @@
 class Dog:public Animal{
 
 	private:
-		Brain		*_brain;
+		Brain*		_brain;
 	
 	public:
 		
@@ -39,7 +38,6 @@ class Dog:public Animal{
 		
 		Dog&		operator=(const Dog& rhs); //Overload
 		
-		std::string	getType()const; //Overrided from virtual
 		void		makeSound()const;//Overrided from virtual
 };
 

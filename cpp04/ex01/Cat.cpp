@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/03 18:44:55 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/05 21:19:34 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ Cat::Cat():Animal(){
 
 	this->_type = "Cat";
 	_brain = new Brain;
-	std::cout<<RED<< getType() << " Was Constructed with a new Brain"<<RESET<< std::endl;
+	std::cout<<RED<< getType() << "A Cat was Constructed with a new Brain 🧠"<<RESET<< std::endl;
 }
 
 Cat::~Cat(){
 
-	delete _brain;
-	std::cout<<RED<<"Cat and its Brain Were Destructed"<<RESET<<std::endl;
+	delete this->_brain;
+	std::cout<<RED<<"Cat and its Brain Were Destroyed"<<RESET<<std::endl;
 }
 
 Cat::Cat(const Cat& copy):Animal(copy){

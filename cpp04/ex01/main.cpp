@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 08:25:36 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/26 10:35:03 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/05 21:18:59 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,75 @@
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include <stdlib.h>
 
-int main()
+
+//void func(){
+//	const Animal* j = new Dog();
+//const Animal* i = new Cat();
+//std::cout<<j<<i<<std::endl;
+////delete j;//should not create a leak
+////delete i;
+//system("leaks brain");
+//
+//}
+//
+//int main()
+//{
+//	func();
+//	return 0;
+//}
+
+int main( void )
 {
-	const Animal* animal = new Animal();
+	// Exercice example
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
 
 	std::cout << std::endl;
-	std::cout << "Dog->getType [" << dog->getType() << "] " << std::endl;
-	std::cout << "Cat->getType [" << cat->getType() << "] " << std::endl;
-	cat->makeSound(); //will output the cat sound! (not the Animal)
-	dog->makeSound(); //will output the dog sound! (not the Animal)
-	animal->makeSound(); //will output the animal sound
 
-	std::cout << std::endl;
-	const WrongAnimal* wrong_animal = new WrongAnimal();
-	const WrongAnimal* wrong_cat = new WrongCat();
-
-	std::cout << std::endl;
-	wrong_cat->makeSound();
-	wrong_animal->makeSound();
-
-	std::cout << std::endl;
-	delete animal;
 	delete dog;
 	delete cat;
-	delete wrong_cat;
-	delete wrong_animal;
-	return 0;	
+	system("leaks ex01");
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	// Proof of deep copy
+	Dog medor;
+	Cat fifi;
+
+/* 	Dog & medor_ref = medor;
+	Cat & fifi_ref = fifi;
+
+	std::cout << std::endl << "creating copies" << std::endl;
+	Dog medor_copy(medor_ref);
+	Cat fifi_copy(fifi_ref);
+
+	Dog & medor_copy_ref = medor_copy;
+	Cat & fifi_copy_ref = fifi_copy;
+ */
+/* 	std::cout << std::endl << "comparing" << std::endl;
+	medor.compareTo(medor_copy_ref);
+	fifi.compareTo(fifi_copy_ref);
+	std::cout << std::endl; */
+
+
+	// Array of animals
+	const Animal	*animal_array[4];
+	std::cout << std::endl;
+	// Half filled with dogs
+	for (int i = 0; i < 2; i++)
+		animal_array[i] = new Dog();
+	std::cout << std::endl;
+
+	// Half filled with cats
+	for (int i = 2; i < 4; i++)
+		animal_array[i] = new Cat();
+	std::cout << std::endl;
+
+	for (int i = 0; i < 4; i++)
+		delete animal_array[i];
+	std::cout << std::endl;
+
+	system("leaks brain");
 }
