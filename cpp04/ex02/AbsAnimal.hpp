@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   AbsAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:44:10 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/26 10:27:30 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/05 22:31:01 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
+#ifndef ABSANIMAL_HPP
+#define ABSANIMAL_HPP
 
 #include <iostream>
 
@@ -23,21 +23,24 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-class WrongAnimal{
+class	AbsAnimal{
 
-	private:
+	protected:
 		std::string	_type;
 	
 	public:
 		
-		WrongAnimal(); //Constructor
-		virtual ~WrongAnimal(); //Destructor
-		WrongAnimal(WrongAnimal& ref);// Copy
+		AbsAnimal(); //Constructor
+		virtual ~AbsAnimal(); //Destructor
+		AbsAnimal(const AbsAnimal& ref);// Copy
 		
-		WrongAnimal&	operator=(const WrongAnimal& rhs); //Overload
+		AbsAnimal&				operator=(const AbsAnimal& rhs); //Overload
 		
-		std::string		getType()const;
-		void			makeSound()const;
+		virtual std::string	getType()const;
+		virtual void		makeSound()const = 0;
 };
+
+
+std::ostream &			operator<<( std::ostream & o, AbsAnimal const & i );
 
 #endif

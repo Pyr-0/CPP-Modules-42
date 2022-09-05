@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/03 18:39:40 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/05 23:32:33 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Animal::Animal():_type("Animal"){
 }
 
 Animal::~Animal(){
-	std::cout<<RED<<"Animal Was Destructed"<<RESET<<std::endl;
+	std::cout<<RED<<"Animal Was Destroyed"<<RESET<<std::endl;
 }
 
 Animal::Animal(const Animal & ref){

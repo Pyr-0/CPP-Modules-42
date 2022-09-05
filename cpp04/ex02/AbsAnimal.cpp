@@ -1,40 +1,45 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
+/*   AbsAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/26 08:56:36 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/05 23:14:28 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "AbsAnimal.hpp"
 
-WrongAnimal::WrongAnimal():_type("WrongAnimal"){
-	std::cout<<GREEN<<"WrongAnimal Was Constructed"<<RESET<<std::endl;
+AbsAnimal::AbsAnimal():_type("AbsAnimal"){
+	std::cout<<GREEN<<"Abs Animal Was Constructed"<<RESET<<std::endl;
 }
 
-WrongAnimal::~WrongAnimal(){
-	std::cout<<RED<<"WrongAnimal Was Destructed"<<RESET<<std::endl;
+AbsAnimal::~AbsAnimal(){
+	std::cout<<RED<<"AbsAnimal Was Destroyed"<<RESET<<std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal & ref){
+AbsAnimal::AbsAnimal(const AbsAnimal & ref){
 	this->_type = ref._type;
-	std::cout<<GREEN<<"WrongAnimal Copy Was Constructed"<<RESET<<std::endl;
+	std::cout<<GREEN<<"AbsAnimal Copy Was Constructed"<<RESET<<std::endl;
 }
 
-WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& rhs){
+AbsAnimal&		AbsAnimal::operator=(const AbsAnimal& rhs){
 	this->_type = rhs._type;
 	return (*this);
 }
 
-void			WrongAnimal::makeSound()const{
-	std::cout<<YLLW<<"( ( (. . . Generic WrongAnimal sound . . .) ) )"<<RESET<<std::endl;
+void		AbsAnimal::makeSound()const{
+	std::cout<<YLLW<<"( ( (. . . Generic Absanimal sound . . .) ) )"<<RESET<<std::endl;
 }
 
-std::string		WrongAnimal::getType()const{
+std::string	AbsAnimal::getType()const{
 	return(this->_type);
+}
+
+std::ostream &			operator<<( std::ostream & o, AbsAnimal const & i )
+{
+	o << "Type = " << i.getType();
+	return o;
 }

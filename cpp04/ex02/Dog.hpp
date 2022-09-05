@@ -1,19 +1,21 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:44:10 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/05 22:59:36 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/08/26 08:06:08 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include <iostream>
+#include "AbsAnimal.hpp"
+#include "Brain.hpp"
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -23,21 +25,23 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-class	Brain{
+class Dog:public AbsAnimal{
 
 	private:
-		std::string	*_ideas;
+		Brain*		_brain;
 	
 	public:
 		
-		Brain(); //Constructor
-		Brain(std::string idea);// Custom Constructor
-		Brain(const Brain& ref);// Copy
-		~Brain(); //Destructor
-
-		Brain&		operator=(const Brain& rhs); //Overload
-		void		brainSound()const; // Method
-		std::string	*getIdeas()const; //Accessor
+		Dog(); //Constructor
+		virtual ~Dog(); //Destructor
+		Dog(const Dog& ref);// Copy
+		
+		Dog&		operator=(const Dog& rhs); //Overload
+		
+		void		makeSound()const;//Overrided from virtual
 };
+
+
+std::ostream &			operator<<( std::ostream & o, Dog const & i );
 
 #endif

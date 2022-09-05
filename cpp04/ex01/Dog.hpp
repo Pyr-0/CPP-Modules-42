@@ -33,7 +33,7 @@ class Dog:public Animal{
 	public:
 		
 		Dog(); //Constructor
-		~Dog(); //Destructor
+		virtual ~Dog(); //Destructor
 		Dog(const Dog& ref);// Copy
 		
 		Dog&		operator=(const Dog& rhs); //Overload

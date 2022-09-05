@@ -1,45 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/05 23:01:45 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/05 23:37:22 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Brain.hpp"
+#include "Cat.hpp"
 
-Dog::Dog():Animal(){
+//====== CONSTRUCTORS =========//
 
-	this->_type = "Dog";
-	this->_brain = new Brain;
-	std::cout<<RED<<"Dog Was Constructed with a new Brain 🧠"<<RESET<<std::endl;
+Cat::Cat():AbsAnimal(){
+
+	this->_type = "Cat";
+	_brain = new Brain;
+	std::cout<<RED<< "A Cat was Constructed with a new Brain 🧠"<<RESET<< std::endl;
 }
 
-Dog::~Dog(){
+Cat::~Cat(){
 
 	delete this->_brain;
-	std::cout<<RED<<"Dog and its Brain Were Destroyed"<<RESET<<std::endl;
+	std::cout<<RED<<"Cat and its Brain Were Destroyed"<<RESET<<std::endl;
 }
 
-Dog::Dog(const Dog & copy):Animal(copy){
+Cat::Cat(const Cat& copy):AbsAnimal(copy){
 	*this = copy; // here it jumps into the *Asignment operator overload* function
-	std::cout<<GREEN<<"Dog Copy Was Constructed"<<RESET<<std::endl;
+	std::cout<<GREEN<<"Cat Copy Was Constructed"<<RESET<<std::endl;
 }
 
-Dog&		Dog::operator=(const Dog& rhs){
-
-	this->_type = rhs._type; // we make the actual copy of the type, same as saying *Animal::operator=rhs)*
+Cat&		Cat::operator=(const Cat& rhs){
+	
+	this->_type = rhs._type; // we make the actual copy of the type, same as saying *AbsAnimal::operator=rhs)*
 	if(this->_brain)
 		delete this->_brain;
 	this->_brain = new Brain(*(rhs._brain)); // Deep copy created by allocating once more a new copy of the brain.
 	return (*this);
 }
 
-void		Dog::makeSound()const{
-	std::cout<<YLLW<<"( ( (🐕 WOOF! WOOF!) ) )"<<RESET<<std::endl;
+void		Cat::makeSound()const{
+		std::cout<<YLLW<< "( ( (🐱 Meeeeow, prrrrrrrr) ) )"<<RESET<<std::endl;
+}
+
+std::ostream &			operator<<( std::ostream & o, Cat const & i )
+{
+	o << "AbstractAnimal Type = " << i.getType();
+	return o;
 }

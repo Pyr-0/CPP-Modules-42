@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 08:25:36 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/05 21:30:14 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/05 23:55:40 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,58 @@
 #include <stdlib.h>
 
 
-//void func(){
-//	const Animal* j = new Dog();
-//const Animal* i = new Cat();
-//std::cout<<j<<i<<std::endl;
-////delete j;//should not create a leak
-////delete i;
-//system("leaks brain");
-//
-//}
-//
-//int main()
-//{
-//	func();
-//	return 0;
-//}
+void func(){
+	const Animal* j = new Dog();
+const Animal* i = new Cat();
+std::cout<<j<<i<<std::endl;
+//delete j;//should not create a leak
+//delete i;
+system("leaks brain");
 
+}
+void func2()
+{
+		Animal	*a = new Dog();
+	
+	std::cout<< a;
+	
+		// // //show deep copy
+	Dog*		 Dog1 = new  Dog;
+	Dog*		 Dog2 = new  Dog(*Dog1);
+	delete Dog1;
+	delete Dog2;
+	system("leaks brain");
+}
 int main( void )
 {
+	func();
+	//delete a;
+	
+	/* 
+	Dog *basic;
+	
+	basic = new Dog();
+	{
+		Dog tmp = *basic;
+	} */
+	
+	//delete basic;
+	
 	// Exercice example
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
+	// const Animal* dog = new Dog();
+	// const Animal* cat = new Cat();
 
-	std::cout << std::endl;
+	// std::cout << std::endl;
 
-	delete dog;
-	delete cat;
-	system("leaks ex01");
-	std::cout << std::endl;
-	std::cout << std::endl;
+	// delete dog;
+	// delete cat;
+	// system("leaks ex01");
+	// std::cout << std::endl;
+	// std::cout << std::endl;
 
-	// Proof of deep copy
-	Dog medor;
-	Cat fifi;
+	// // Proof of deep copy
+	// Dog medor;
+	// Cat fifi;
 
 /* 	Dog & medor_ref = medor;
 	Cat & fifi_ref = fifi;
