@@ -6,43 +6,43 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 08:25:36 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/05 23:55:40 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:20:17 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include <stdlib.h>
 
 
 void func(){
-	const Animal* j = new Dog();
-const Animal* i = new Cat();
-std::cout<<j<<i<<std::endl;
-//delete j;//should not create a leak
-//delete i;
-system("leaks brain");
 
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	std::cout<<j<<i<<std::endl;
+	delete j;//should not create a leak
+	delete i;
+	system("leaks brain");
 }
+
 void func2()
 {
-		Animal	*a = new Dog();
+	// Animal	*a = new Dog();
 	
-	std::cout<< a;
+	// std::cout<< a;
+	// std::cout<< a;
 	
-		// // //show deep copy
+	// // //show deep copy
 	Dog*		 Dog1 = new  Dog;
 	Dog*		 Dog2 = new  Dog(*Dog1);
 	delete Dog1;
 	delete Dog2;
-	system("leaks brain");
+	//system("leaks brain");
 }
 int main( void )
 {
-	func();
+	func2();
 	//delete a;
 	
 	/* 

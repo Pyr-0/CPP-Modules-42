@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 09:48:40 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/05 22:33:28 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:21:51 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Brain::Brain(const Brain& copy){
 	this->_ideas = new std::string[100];
 	for(int i = 0; i < 100; i++)
 		this->_ideas[i] = copy_ideas[i] + "COPY";
+	std::cout<<GREEN<< "A Brain full of copied ideas was created"<<RESET<< std::endl;
 	*this = copy;
 }
 

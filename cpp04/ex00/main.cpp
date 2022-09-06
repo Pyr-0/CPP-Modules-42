@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 08:25:36 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/26 10:35:03 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:42:03 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ int main()
 	delete cat;
 	delete wrong_cat;
 	delete wrong_animal;
-	return 0;	
+	return 0;
 }
