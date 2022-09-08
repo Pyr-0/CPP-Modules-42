@@ -12,7 +12,8 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat():_type("WrongCat"){
+WrongCat::WrongCat():WrongAnimal(){
+	this->_type= "WrongCat";
 	std::cout<<GREEN<<"WrongCat Was Constructed"<<RESET<<std::endl;
 }
 

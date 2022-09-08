@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/05 23:37:15 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:55:55 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Dog::Dog():AbsAnimal(){
 Dog::~Dog(){
 
 	delete this->_brain;
-	std::cout<<RED<<"Dog and its Brain Were Destroyed"<<RESET<<std::endl;
+	std::cout<<RED<<"Dog and it's Brain Were Destroyed"<<RESET<<std::endl;
 }
 
 Dog::Dog(const Dog & copy):AbsAnimal(copy){

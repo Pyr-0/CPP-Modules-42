@@ -27,9 +27,6 @@
 
 class Dog:public Animal{
 
-	private:
-		std::string	_type;
-	
 	public:
 		
 		Dog(); //Constructor
@@ -38,7 +35,6 @@ class Dog:public Animal{
 		
 		Dog&				operator=(const Dog& rhs); //Overload
 		
-		std::string	getType()const; //Overrided from virtual
 		void		makeSound()const;//Overrided from virtual
 };
 

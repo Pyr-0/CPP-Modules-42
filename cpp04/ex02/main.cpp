@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 08:25:36 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/06 20:07:01 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/08 18:42:30 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,42 @@
 #include <stdlib.h>
 
 
-void func(){
-	// AbsAnimal	*test = new Dog(); // this is an instance of an Abstract class, it wont work since the class method is Purely virtual.
-	// Dog			*test = new Dog; // This works because its not an instance of the base class, yet a derived class
-	// Cat			test2; // This works because its not an instance of the base class, yet a derived class
-	// std::cout<< test<<std::endl;
-	// std::cout<< test2<<std::endl;
-	
-	
-	// // //show deep copy
-	Dog*		 Dog1 = new  Dog;
-	Dog*		 Dog2 = new  Dog(*Dog1);
-	
-	 std::cout<< <<std::endl;
-	//delete Dog1;
-	//delete Dog2;
-} int main( void )
-{
-	func();
+void	check_leaks(){
 	system("leaks brain");
 }
+
+
+//Simple instantiation of an abstract class, [It should throw an error]
+// void func1(){
+
+// 	AbsAnimal	test;
+// }
+
+void	Array_of_animals(){
+
+	//// Array of animals
+	const AbsAnimal	*animal_array[4];
+	std::cout << std::endl;
+	// Half filled with dogs
+	for (int i = 0; i < 2; i++)
+		animal_array[i] = new Dog();
+	std::cout << std::endl;
+
+	// Half filled with cats
+	for (int i = 2; i < 4; i++)
+		animal_array[i] = new Cat();
+	std::cout << std::endl;
+
+	//Deletion Loop
+	for (int i = 0; i < 4; i++)
+		delete animal_array[i];
+	std::cout << std::endl;
+	atexit(check_leaks);
+}
+
+int main( void )
+{
+	//func1();
+	Array_of_animals();
+}
+

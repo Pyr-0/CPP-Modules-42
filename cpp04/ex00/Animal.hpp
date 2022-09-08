@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:44:10 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/26 08:06:08 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/08 12:57:40 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-class Animal{
+/* Virtual Method needs virtual destructor else it will only call its base class destructor */
 
-	private:
+class	Animal{
+
+	protected:
 		std::string	_type;
 	
 	public:
@@ -36,7 +38,7 @@ class Animal{
 		
 		Animal&				operator=(const Animal& rhs); //Overload
 		
-		virtual std::string	getType()const;
+		std::string	getType()const;
 		virtual void		makeSound()const;
 };
 

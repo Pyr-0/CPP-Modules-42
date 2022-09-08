@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/06 20:11:59 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/08 20:18:06 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,25 @@ Cat&		Cat::operator=(const Cat& rhs){
 
 void		Cat::makeSound()const{
 		std::cout<<YLLW<< "( ( (🐱 Meeeeow, prrrrrrrr) ) )"<<RESET<<std::endl;
+}
+
+Brain *Cat::getBrain( void ) const
+{
+	return (this->_brain);
+}
+
+void Cat::compareTo(Cat const & other_cat) const
+{
+	std::cout << std::endl;
+	std::cout <<YLLW<< "Now comparing two cats\n";
+	std::cout <<YLLW<< "My brain's heap address: " << static_cast<void*>(this->_brain) << std::endl;
+	std::cout <<YLLW<< "Other's heap address: " << static_cast<void*>(other_cat.getBrain()) << std::endl;
+	std::cout <<YLLW<< std::endl;
+	std::cout <<YLLW<< "My brain's ideas \t\t | \t\t\t Other brain's ideas\n";
+	for (int i = 0; i < 100; i++)
+		std::cout << "-";
+	std::cout << std::endl;
+	for (int i = 0; i < 100; i++)
+		std::cout << ((this->_brain)->getIdeas())[i] << "\t\t\t | \t\t\t" << ((other_cat.getBrain())->getIdeas())[i] << std::endl;
+	std::cout << std::endl;
 }

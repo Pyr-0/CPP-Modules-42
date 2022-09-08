@@ -39,6 +39,9 @@ class Dog:public Animal{
 		Dog&		operator=(const Dog& rhs); //Overload
 		
 		void		makeSound()const;//Overrided from virtual
+		
+		Brain *getBrain( void ) const;
+		void compareTo(Dog const & other_dog) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 09:48:40 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/06 20:21:51 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/08 19:55:14 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ Brain::~Brain(){
 std::string *Brain::getIdeas()const{
 	return this->_ideas;
 }
-

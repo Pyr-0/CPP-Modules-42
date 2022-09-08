@@ -6,13 +6,14 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/26 10:40:25 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/08 12:58:59 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat():_type("Cat"){
+Cat::Cat():Animal(){
+	this->_type = "Cat";
 	std::cout<<GREEN<<"Cat Was Constructed"<<RESET<<std::endl;
 }
 
@@ -32,8 +33,4 @@ Cat&		Cat::operator=(const Cat& rhs){
 
 void		Cat::makeSound()const{
 		std::cout<<YLLW<< "( ( (🐱 Meeeeow, prrrrrrrr) ) )"<<RESET<<std::endl;
-}
-
-std::string	Cat::getType()const{
-	return(this->_type);
 }

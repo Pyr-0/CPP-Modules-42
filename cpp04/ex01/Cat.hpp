@@ -39,7 +39,10 @@ class Cat:public Animal{
 		Cat&		operator=(const Cat& rhs); //Overload
 		
 		void		makeSound()const;
-		void		think()const;
+		
+		
+		Brain *getBrain( void ) const;
+		void compareTo(Cat const & other_cat) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/06 20:41:08 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/08 20:24:57 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,24 @@ Dog&		Dog::operator=(const Dog& rhs){
 
 void		Dog::makeSound()const{
 	std::cout<<YLLW<<"( ( (🐕 WOOF! WOOF!) ) )"<<RESET<<std::endl;
+}
+
+Brain *Dog::getBrain( void ) const{
+	return (this->_brain);
+}
+
+void Dog::compareTo(Dog const & other_dog) const
+{
+	std::cout << std::endl;
+	std::cout << "Now comparing two dogs\n";
+	std::cout << "My brain's heap address: " << static_cast<void*>(this->_brain) << std::endl;
+	std::cout << "Other's heap address: " << static_cast<void*>(other_dog.getBrain()) << std::endl;
+	std::cout << std::endl;
+	std::cout << "My brain's ideas \t\t | \t\t\t Other brain's ideas\n";
+	for (int i = 0; i < 100; i++)
+		std::cout << "-";
+	std::cout << std::endl;
+	for (int i = 0; i < 100; i++)
+		std::cout << ((this->_brain)->getIdeas())[i] << "\t\t\t | \t\t\t" << ((other_dog.getBrain())->getIdeas())[i] << std::endl;
+	std::cout << std::endl;
 }

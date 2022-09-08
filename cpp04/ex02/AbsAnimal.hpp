@@ -23,6 +23,10 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
+/*	Here the idea is to exemplify that by making a method a virtual funtion
+	we make the class uninstantiatable, which means that it can only lend the 
+	methods to its derived classes but we cannnot create an instance of the class
+	since it has becomed an abstract class */
 class	AbsAnimal{
 
 	protected:
@@ -37,7 +41,7 @@ class	AbsAnimal{
 		AbsAnimal&				operator=(const AbsAnimal& rhs); //Overload
 		
 		virtual std::string	getType()const;
-		virtual void		makeSound()const = 0;
+		virtual void		makeSound()const = 0;//Purely virtual function
 };
 
 

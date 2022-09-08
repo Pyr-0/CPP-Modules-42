@@ -25,13 +25,13 @@
 
 class WrongAnimal{
 
-	private:
+	protected:
 		std::string	_type;
 	
 	public:
 		
 		WrongAnimal(); //Constructor
-		virtual ~WrongAnimal(); //Destructor
+		~WrongAnimal(); //Destructor
 		WrongAnimal(WrongAnimal& ref);// Copy
 		
 		WrongAnimal&	operator=(const WrongAnimal& rhs); //Overload

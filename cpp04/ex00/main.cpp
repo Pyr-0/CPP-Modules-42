@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 08:25:36 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/06 20:42:03 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/08 13:11:02 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+
+void	check_leaks(){
+	system("leaks animal");
+}
 
 int main()
 {
@@ -32,6 +36,8 @@ int main()
 	std::cout << std::endl;
 	const WrongAnimal* wrong_animal = new WrongAnimal();
 	const WrongAnimal* wrong_cat = new WrongCat();
+	std::cout << "WrongCat->getType [" << wrong_cat->getType() << "] " << std::endl;
+	std::cout << "WrongAnimal->getType [" << wrong_animal->getType() << "] " << std::endl;
 
 	std::cout << std::endl;
 	wrong_cat->makeSound();
@@ -43,5 +49,6 @@ int main()
 	delete cat;
 	delete wrong_cat;
 	delete wrong_animal;
-	return 0;
+	//atexit(check_leaks);
+	return(0);
 }
