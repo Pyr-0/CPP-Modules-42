@@ -38,8 +38,8 @@ std::string	AbsAnimal::getType()const{
 	return(this->_type);
 }
 
-std::ostream &			operator<<( std::ostream & o, AbsAnimal const & i )
-{
-	o << "Type = " << i.getType();
-	return o;
-}
+// std::ostream &			operator<<( std::ostream & o, AbsAnimal const & i )
+// {
+// 	o << "Type = " << i.getType();
+// 	return o;
+// }

@@ -45,6 +45,6 @@ class	AbsAnimal{
 };
 
 
-std::ostream &			operator<<( std::ostream & o, AbsAnimal const & i );
+// std::ostream &			operator<<( std::ostream & o, AbsAnimal const & i );
 
 #endif

@@ -42,6 +42,6 @@ class Dog:public AbsAnimal{
 };
 
 
-std::ostream &			operator<<( std::ostream & o, Dog const & i );
+//std::ostream &			operator<<( std::ostream & o, Dog const & i );
 
 #endif

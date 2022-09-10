@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/05 23:37:22 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/09 20:34:15 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void		Cat::makeSound()const{
 		std::cout<<YLLW<< "( ( (🐱 Meeeeow, prrrrrrrr) ) )"<<RESET<<std::endl;
 }
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i )
-{
-	o << "AbstractAnimal Type = " << i.getType();
-	return o;
-}
+// std::ostream &			operator<<( std::ostream & o, Cat const & i )
+// {
+// 	o << "AbstractAnimal Type = " << i.getType();
+// 	return o;
+// }

@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:44:10 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/05 22:59:36 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/09 20:34:25 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ class	Brain{
 		~Brain(); //Destructor
 
 		Brain&		operator=(const Brain& rhs); //Overload
-		void		brainSound()const; // Method
 		std::string	*getIdeas()const; //Accessor
 };
 

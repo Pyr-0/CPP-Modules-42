@@ -43,5 +43,5 @@ class Cat:public AbsAnimal{
 };
 
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i );
+// std::ostream &			operator<<( std::ostream & o, Cat const & i );
 #endif

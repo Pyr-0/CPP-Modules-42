@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 07:53:58 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/08 15:55:55 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/09 20:33:58 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void		Dog::makeSound()const{
 	std::cout<<YLLW<<"( ( (🐕 WOOF! WOOF!) ) )"<<RESET<<std::endl;
 }
 
-std::ostream &			operator<<( std::ostream & o, Dog const & i )
-{
-	o << "AbstractAnimal Type = " << i.getType();
-	return o;
-}
+// std::ostream &			operator<<( std::ostream & o, Dog const & i )
+// {
+// 	o << "AbstractAnimal Type = " << i.getType();
+// 	return o;
+// }

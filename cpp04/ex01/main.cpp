@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 08:25:36 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/08 20:27:36 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/09 20:33:07 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,30 +45,8 @@ void	func3(){
 	Dog*		 Dog2 = new  Dog(*Dog1);
 	delete Dog1;
 	delete Dog2;
-	Dog2->compareTo(*Dog1);
 	std::cout<<YLLW<<"The Dog's Address is: "<< Dog1<< RESET<< std::endl;
 	std::cout<<YLLW <<"Dog's Copy Address is: "<< Dog2<<RESET<< std::endl;
-}
-
-void	func4(){
-
-	Dog	medor;
-	Cat	fifi;
-
-	Dog & medor_ref = medor;
-	Cat & fifi_ref = fifi;
-
-	std::cout << std::endl << "creating copies" << std::endl;
-	Dog medor_copy(medor_ref);
-	Cat fifi_copy(fifi_ref);
-
-	Dog & medor_copy_ref = medor_copy;
-	Cat & fifi_copy_ref = fifi_copy;
-
-	std::cout << std::endl << "comparing" << std::endl;
-	medor.compareTo(medor_copy_ref);
-	fifi.compareTo(fifi_copy_ref);
-	std::cout << std::endl;
 }
 
 void	Array_of_animals(){
@@ -96,8 +74,7 @@ int main( void )
 {
 	// func();
 	// func2();
-	//func3();
-	 func4();
-	atexit(check_leaks);
+	func3();
 	//Array_of_animals();
+	//atexit(check_leaks);
 }
