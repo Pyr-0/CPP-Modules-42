@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:10:06 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/13 18:16:26 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/13 21:27:37 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -22,6 +23,8 @@
 #define						LILA "\e[35m"
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
+
+class Form;
 
 class Bureaucrat{
 
@@ -42,6 +45,7 @@ class Bureaucrat{
 		void				setGrade(int grade);
 		void				incrementGrade();
 		void				decrementGrade();
+		void				signForm(Form & form);
 
 		class GradeTooHighException: public std::exception{ //we create a new class  that inherits from exception class in order to use the func what()
 			

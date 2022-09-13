@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:31:37 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/13 18:15:08 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/13 21:05:22 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,3 +94,14 @@ const char* Bureaucrat::GradeTooHighException::what() const throw(){
 
 	return ("Grade its too High\n");
 };
+
+void	Bureaucrat::signForm(Form & form){
+	
+	try{
+		form.beSigned(*this);
+	}
+	catch(std::exception & exception){
+		std::cout<<GREEN<<this->_name<<RED<<" could not sign"<<GREEN<<form.getName()
+		<<RED<<" because"<< exception.what()<< std::endl;
+	}
+}
