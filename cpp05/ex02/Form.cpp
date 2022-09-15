@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:31:48 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/15 22:59:53 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 00:23:34 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,10 @@ const char* Form::GradeTooHighException::what() const throw(){
 const char* Form::FormNotSignedException::what() const throw(){
 
 	return ("Formed was not signed\n");
+};
+const char* Form::FailureException::what() const throw(){
+
+	return ("Robotomy was unsuccesful\n");
 };
 
 void	Form::beSigned(Bureaucrat & b){

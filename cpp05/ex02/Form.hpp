@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:32:18 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/15 22:59:02 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 00:21:53 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ public:
 	class FormNotSignedException: public std::exception{
 			public:
 			const char* what() const throw();
+	};
+	class FailureException : public std::exception{
+		public:
+			virtual const char* what() const throw();
 	};
 };
 
