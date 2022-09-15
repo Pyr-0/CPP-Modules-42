@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:10:06 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/14 18:05:51 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/15 21:43:03 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ class Bureaucrat{
 		~Bureaucrat();
 		Bureaucrat(Bureaucrat const & ref);
 		Bureaucrat & operator=(Bureaucrat const & ref);
+	void	executeForm(Form const & form)
+		;
 		
 		const std::string	getName()const;
 		int					getGrade()const;

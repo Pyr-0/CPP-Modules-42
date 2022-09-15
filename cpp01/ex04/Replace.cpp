@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:47:12 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/08/20 19:39:53 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/15 23:34:50 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 	and at the end it appends the new file extention to ".replace"*/
 myReplace::myReplace(std::string filename, std::string str1, std::string str2):_str1(str1), _str2(str2){
 
-	_readFile.open(filename);
+	_readFile.open(filename.c_str());
 	if(_readFile.is_open())
 	{
 		std::streambuf* ptr_to_buf = _readFile.rdbuf();		//read readfiles input into a buffer

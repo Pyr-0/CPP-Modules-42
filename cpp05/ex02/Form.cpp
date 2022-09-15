@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:31:48 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/14 17:13:57 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/15 22:59:53 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Form::Form():_name("Default Name"), _gradeToBeSigned(75), _gradeToBeExec(75), _signedState(0){
 
 }
+
 /*	what is printing the error and throw returns the error*/
 Form::Form(std::string name, int signGrade, int execGrade)
 :_name(name), _gradeToBeSigned(signGrade), _gradeToBeExec(execGrade), _signedState(0){
@@ -90,6 +91,10 @@ const char* Form::GradeTooLowException::what() const throw(){
 const char* Form::GradeTooHighException::what() const throw(){
 
 	return ("Grade its TOO High\n");
+};
+const char* Form::FormNotSignedException::what() const throw(){
+
+	return ("Formed was not signed\n");
 };
 
 void	Form::beSigned(Bureaucrat & b){
