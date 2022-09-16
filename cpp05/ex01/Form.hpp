@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:32:18 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/13 21:33:26 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 20:54:03 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,27 @@
 
 class Bureaucrat;
 
-class Form{
-private:
-	const std::string	_name;
-	const int			_gradeToBeSigned;
-	const int			_gradeToBeExec;
-	bool				_signedState;
+class		Form{
+	private:
+		const std::string	_name;
+		const int			_gradeToBeSigned;
+		const int			_gradeToBeExec;
+		bool				_signedState;
+		
+	public:
+		Form();
+		Form(const Form& copy);
+		Form(std::string name, int signGrade, int execGrade);
+		Form & operator=(const Form & ref);
+		~Form();
 	
-public:
-	Form();
-	Form(const Form& copy);
-	Form(std::string name, int signGrade, int execGrade);
-	Form & operator=(const Form & ref);
-	~Form();
-
-	std::string getName(void)const;
-	int		getSignGrade( void ) const;
-	bool	getSignState( void ) const;
-	int		getExecGrade( void ) const;
-	void	beSigned(Bureaucrat & b);
-
-	class GradeTooHighException: public std::exception{
+		std::string getName(void)const;
+		int		getSignGrade( void ) const;
+		bool	getSignState( void ) const;
+		int		getExecGrade( void ) const;
+		void	beSigned(Bureaucrat & b);
+	
+		class GradeTooHighException: public std::exception{
 			public:
 				const char* what() const throw();
 		};
@@ -56,10 +56,9 @@ public:
 			public:
 				const char* what() const throw();
 		};
-	
 };
 
-	std::ostream&	operator<<(std::ostream & o, const Form& rhs);
+		std::ostream&	operator<<(std::ostream & o, const Form& rhs);
 
 
 #endif

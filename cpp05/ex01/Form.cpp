@@ -6,17 +6,16 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:31:48 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/14 17:13:57 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 20:52:20 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 //====================== CONSTRUCTORS =====================//
-Form::Form():_name("Default Name"), _gradeToBeSigned(75), _gradeToBeExec(75), _signedState(0){
 
-}
-/*	what is printing the error and throw returns the error*/
+Form::Form():_name("Default Name"), _gradeToBeSigned(75), _gradeToBeExec(75), _signedState(0){}
+
 Form::Form(std::string name, int signGrade, int execGrade)
 :_name(name), _gradeToBeSigned(signGrade), _gradeToBeExec(execGrade), _signedState(0){
 
@@ -27,7 +26,8 @@ Form::Form(std::string name, int signGrade, int execGrade)
 }
 
 Form::~Form(){}
-/*	Const atributes can still be initialized in the init 
+
+/*	Constant atributes can still be initialized in the init 
 	list of a constructor */
 Form::Form(Form const & copy): _name(copy._name), _gradeToBeSigned(copy._signedState), _gradeToBeExec(copy._gradeToBeExec), _signedState(copy._signedState){
 	*this = copy;
@@ -36,7 +36,7 @@ Form::Form(Form const & copy): _name(copy._name), _gradeToBeSigned(copy._signedS
 //====================== OVERLOADS =====================//
 
 /*	In an Assignment Op. we have to asign all atributes 
-	that are not const */
+	that are not const in this case the _signedState */
 Form & Form::operator=(Form const & ref){
 
 	if(this != &ref)
@@ -77,11 +77,8 @@ bool				Form::getSignState( void )const{
 	return this->_signedState;
 }
 
-
 //====================== METHODS =====================//
 
-/*	We can throw() our specific error/exceptions 
-	inside of other functions */
 const char* Form::GradeTooLowException::what() const throw(){
 
 	return ("Grade its TOO Low\n");
@@ -98,5 +95,4 @@ void	Form::beSigned(Bureaucrat & b){
 		this->_signedState = true;
 	else
 		throw GradeTooLowException();
-		
 }

@@ -41,11 +41,11 @@ public:
 	Form & operator=(const Form & ref);
 	virtual ~Form();
 
-	std::string getName(void)const;
-	int		getSignGrade( void ) const;
-	bool	getSignState( void ) const;
-	int		getExecGrade( void ) const;
-	void	beSigned(Bureaucrat & b);
+	std::string	getName(void)const;
+	int			getSignGrade( void ) const;
+	bool		getSignState( void ) const;
+	int			getExecGrade( void ) const;
+	void		beSigned(Bureaucrat & b);
 	virtual void	execute(Bureaucrat const & executor)const = 0;//Purely virtual
 
 	class GradeTooHighException: public std::exception{

@@ -61,12 +61,11 @@ std::string	RobotomyRequestForm::getTarget( void )const{
 
 void	RobotomyRequestForm::execute(const Bureaucrat & executor)const{
 
-	std::cout <<RED<< "<<<<<INTENSE DRILLING NOISES!!!>>>>\n" <<RESET<<std::endl;
 	if(this->_signedState == false )
 		throw FormNotSignedException();
 	else if(executor.getGrade() > this->_gradeToBeExec)
 		throw GradeTooLowException();
-	int success = std::rand() % 2;
+	int success = arc4random() % 2;
 	std::cout <<RED<< "<<<<<INTENSE DRILLING NOISES!!!>>>>\n" <<RESET<<std::endl;
 	if (success == 1)
 		std::cout <<GREEN<< this->_target <<YLLW<< " Has been robotomized\n" <<RESET<<std::endl;

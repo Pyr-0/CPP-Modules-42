@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:31:37 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 12:15:50 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 21:00:29 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 #include "Bureaucrat.hpp"
 
 //====================== CONSTRUCTORS =====================//
-Bureaucrat::Bureaucrat():_name("Default Name"), _grade(75){
+Bureaucrat::Bureaucrat():_name("Default Name"), _grade(75){}
 
-}
-/*	what is printing the error and throw returns the error*/
 Bureaucrat::Bureaucrat(std::string name, int grade):_name(name), _grade(grade){
 
 	if(grade < 1)
@@ -45,8 +43,8 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & ref){
 }
 
 std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs){
-	
-	o <<GREEN<< rhs.getName() <<YLLW<< "'s Bureaucrat Grade is : " <<GREEN<< rhs.getGrade() <<RESET<< std::endl;
+
+	o <<GREEN<< rhs.getName() <<YLLW<< " the Bureaucrat, Grade: " <<GREEN<<"["<< rhs.getGrade()<<"]"<<RESET<< std::endl;
 	return o;
 }
 
@@ -59,6 +57,7 @@ const std::string	Bureaucrat::getName( void ) const{
 int					Bureaucrat::getGrade( void ) const{
 	return this->_grade;
 }
+
 void					Bureaucrat::setGrade(int grade){
 	this->_grade = grade;
 }
@@ -95,8 +94,6 @@ const char* Bureaucrat::GradeTooHighException::what() const throw(){
 	return ("Grade its too High\n");
 };
 
-
-
 //====================== Ex01 =====================//
 
 void	Bureaucrat::signForm(Form & form){
@@ -107,7 +104,7 @@ void	Bureaucrat::signForm(Form & form){
 	}
 	catch(std::exception & exception){
 		std::cout<<GREEN<<this->_name<<RED<<" COULD NOT SIGN "<<GREEN<<form.getName()
-		<<RED<<" because "<< exception.what()<< std::endl;
+		<<RED<<" because "<< exception.what()<< RESET<<std::endl;
 	}
 }
 
@@ -116,13 +113,11 @@ void	Bureaucrat::signForm(Form & form){
 
 void Bureaucrat::executeForm(Form const & form)
 {
-	try
-	{
+	try{
 		form.execute(*this);
 		std::cout <<GREEN<< this->_name << YLLW<< " sucesfully executed " <<GREEN<< form <<RESET << std::endl;
 	}
-	catch (std::exception &e)
-	{
+	catch (std::exception &e){
 		std::cout<< RED<< e.what() <<RESET<< std::endl;
 	}
 }

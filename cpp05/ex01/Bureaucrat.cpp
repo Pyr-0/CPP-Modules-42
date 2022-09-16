@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:31:37 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/14 17:19:59 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 21:04:21 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 #include "Bureaucrat.hpp"
 
 //====================== CONSTRUCTORS =====================//
-Bureaucrat::Bureaucrat():_name("Default Name"), _grade(75){
+Bureaucrat::Bureaucrat():_name("Default Name"), _grade(75){}
 
-}
-/*	what is printing the error and throw returns the error*/
 Bureaucrat::Bureaucrat(std::string name, int grade):_name(name), _grade(grade){
 
 	if(grade < 1)
@@ -28,7 +26,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade):_name(name), _grade(grade){
 
 Bureaucrat::~Bureaucrat(){
 	std::cout<<RED<< "A Bureaucrat "<<BLUE<< _name <<RED<<" with a grade "
-				 <<BLUE<< _grade <<RED<< " has beed destroyed\n"<<RESET;
+			 <<BLUE<< _grade <<RED<< " has beed destroyed\n"<<RESET;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const & copy){
@@ -46,7 +44,7 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & ref){
 
 std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs){
 	
-	o <<GREEN<< rhs.getName() <<YLLW<< "'s Bureaucrat Grade is : " <<GREEN<< rhs.getGrade() <<RESET<< std::endl;
+	o <<GREEN<< rhs.getName() <<YLLW<< " the Bureaucrat, Grade: " <<GREEN<<"["<< rhs.getGrade()<<"]"<<RESET<< std::endl;
 	return o;
 }
 
@@ -64,6 +62,7 @@ void					Bureaucrat::setGrade(int grade){
 }
 
 //====================== METHODS =====================//
+
 /*	We can throw() our specific error/exceptions 
 	inside of other functions */
 void				Bureaucrat::incrementGrade( void ){
@@ -103,6 +102,6 @@ void	Bureaucrat::signForm(Form & form){
 	}
 	catch(std::exception & exception){
 		std::cout<<GREEN<<this->_name<<RED<<" COULD NOT SIGN "<<GREEN<<form.getName()
-		<<RED<<" because "<< exception.what()<< std::endl;
+		<<RED<<" because "<< exception.what()<<RESET<< std::endl;
 	}
 }

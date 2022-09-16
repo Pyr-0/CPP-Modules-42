@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:31:48 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 15:26:25 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:39:35 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,28 @@ Intern & Intern::operator=(Intern const & ref){
 	return (*this);
 }
 
-//====================== ACCESSORS =====================//
-
-//====================== METHODS =====================//
+//====================== EXCEPTION =====================//
 
 const char* Intern::InternException::what() const throw()
 {
-	return ("\e[31mIntern spills Coffee in the Form and ruins the Form... Intern Cleans full of tears\e[0m");
+	return ("\e[31mIntern spills Coffee while making the Form and ruins it... Intern Cleans up full of tears\e[0m");
 }
 
-Form	*Intern::new_robo(std::string target)
+//====================== METHODS =====================//
+
+Form	*Intern::roboForm(std::string target)
 {
 	Form	*robo = new RobotomyRequestForm(target);
 	return (robo);
 }
 
-Form	*Intern::new_president(std::string target)
+Form	*Intern::presiForm(std::string target)
 {
 	Form	*president = new PresidentialPardonForm(target);
 	return (president);
 }
 
-Form*	Intern::new_shrub(std::string target)
+Form*	Intern::shrubForm(std::string target)
 {
 	Form	*shrub = new ShrubberyCreationForm(target);
 	return (shrub);
@@ -61,9 +61,9 @@ Form*	Intern::new_shrub(std::string target)
 Form *Intern::makeForm(std::string form_name, std::string form_target)
 {
 	Form*	(Intern::*functionArray[])(std::string target) = {
-			&Intern::new_robo,
-			&Intern::new_president,
-			&Intern::new_shrub
+			&Intern::roboForm,
+			&Intern::presiForm,
+			&Intern::shrubForm
 	};
 	std::string	form[3] = {"Robotomy form", "Presidential pardon Form", "Shrubbery creation Form"};
 	Form	*ret = NULL;
@@ -71,7 +71,6 @@ Form *Intern::makeForm(std::string form_name, std::string form_target)
 	{
 		if (form[i] == form_name)
 		{
-			//ret = *(functionArray[i])(form_target);
 			ret = (this->*functionArray[i])(form_target);
 			std::cout<<GREEN << "Intern creates "<<form[i] <<" for "<<RED<<form_target<<RESET<< std::endl;
 			return (ret);

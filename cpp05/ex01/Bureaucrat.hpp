@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:10:06 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/13 21:27:37 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 20:54:40 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,20 @@ class Bureaucrat{
 		void				decrementGrade();
 		void				signForm(Form & form);
 
-		class GradeTooHighException: public std::exception{ //we create a new class  that inherits from exception class in order to use the func what()
+		class GradeTooHighException: public std::exception{
 			
 			public:
-				const char* what() const throw(); // we place throw at the end to avoid for throw to be used inside the what function
+				const char* what() const throw();
 		};
 
-		class GradeTooLowException: public std::exception{ //we create a new class  that inherits from exception class in order to use the func what()
+		class GradeTooLowException: public std::exception{
 			
 			public:
-				const char* what() const throw(); // we place throw at the end to avoid for throw to be used inside the what function
+				const char* what() const throw();
 		};
 };
 
-// << overload
-std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs);
+		std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs);
 
 
 #endif

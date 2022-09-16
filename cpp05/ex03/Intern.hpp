@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:32:18 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 14:36:07 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:13:32 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ class	Intern{
 		~Intern();
 	
 		Form	*makeForm(std::string form_name, std::string form_target);
-		Form	*new_robo(std::string target);
-		Form	*new_president(std::string target);
-		Form	*new_shrub(std::string target);
+		Form	*roboForm(std::string target);
+		Form	*presiForm(std::string target);
+		Form	*shrubForm(std::string target);
 		
 		class	InternException: public std::exception{
 			public:

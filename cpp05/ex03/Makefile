@@ -6,7 +6,7 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/09/16 14:33:25 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/09/16 20:24:03 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ $(DIR_OBJS):
 				@mkdir $@
 
 clean:
-				@$(RM) $(DIR_OBJS)
+				@$(RM) $(DIR_OBJS) *_shrubbery
 				@tput setaf 01 && printf "\n     object files  deleted.\n"
 				
 fclean:			clean
