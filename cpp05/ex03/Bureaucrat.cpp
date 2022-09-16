@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:31:37 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 12:17:09 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 12:15:50 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ const char* Bureaucrat::GradeTooHighException::what() const throw(){
 
 	return ("Grade its too High\n");
 };
+
+
 
 //====================== Ex01 =====================//
 
