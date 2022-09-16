@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:17:03 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 12:13:41 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 12:32:31 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(void)
 	Form*		form2 = new PresidentialPardonForm("Romy");
 	Form*		form3 = new RobotomyRequestForm("Svenja");
 	
-	milton.executeForm(*form2);
+	//milton.executeForm(*form2);
 	try{
 		milton.signForm(*form1);
 		milton.signForm(*form2);

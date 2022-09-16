@@ -67,6 +67,7 @@ void	ShrubberyCreationForm::execute(const Bureaucrat & executor)const{
 		throw GradeTooLowException();
 	else
 	{
+		std::cout<<GREEN<<"Shrub Created! 🌳"<<RESET<<std::endl;
 		std::string line;
 		std::ifstream ini_file;
 		ini_file.open("tree.txt");
