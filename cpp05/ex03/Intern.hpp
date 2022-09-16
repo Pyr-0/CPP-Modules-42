@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:32:18 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 12:06:16 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:36:07 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,23 @@
 class Form;
 
 class	Intern{
-private:
-	std::string	_target;
+
+	public:
+		Intern();
+		Intern(const Intern& copy);
+		Intern & operator=(const Intern & ref);
+		~Intern();
 	
-public:
-	Intern();
-	Intern(const Intern& copy);
-	Intern & operator=(const Intern & ref);
-	~Intern();
-
-	Form *makeForm(std::string form_name, std::string form_target);
-	void	execute(const Bureaucrat & executor)const;
+		Form	*makeForm(std::string form_name, std::string form_target);
+		Form	*new_robo(std::string target);
+		Form	*new_president(std::string target);
+		Form	*new_shrub(std::string target);
+		
+		class	InternException: public std::exception{
+			public:
+			const char*	what()const throw();
+		};
+		
 };
-
-	std::ostream&	operator<<(std::ostream & o, const Intern& rhs);
-
 
 #endif

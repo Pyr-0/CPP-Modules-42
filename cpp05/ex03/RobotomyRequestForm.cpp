@@ -61,6 +61,7 @@ std::string	RobotomyRequestForm::getTarget( void )const{
 
 void	RobotomyRequestForm::execute(const Bureaucrat & executor)const{
 
+	std::cout <<RED<< "<<<<<INTENSE DRILLING NOISES!!!>>>>\n" <<RESET<<std::endl;
 	if(this->_signedState == false )
 		throw FormNotSignedException();
 	else if(executor.getGrade() > this->_gradeToBeExec)

@@ -1,72 +1,84 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialFormidentialFormPresidentialForm.cpp                               :+:      :+:    :+:   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:31:48 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/15 23:53:09 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/16 15:26:25 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialForm.hpp"
+#include "Intern.hpp"
 
 //====================== CONSTRUCTORS =====================//
-PresidentialForm::PresidentialForm()
-:Form("Default Presidential Form", 25, 5), _target("Default Target"){
+Intern::Intern(){}
 
-}
-PresidentialForm::PresidentialForm(std::string target)
-:Form("Presidential Form", 25, 5), _target(target){
-}
+Intern::~Intern(){}
 
-PresidentialForm::~PresidentialForm(){}
-
-PresidentialForm::PresidentialForm(PresidentialForm const & copy)
-: Form(copy), _target(copy._target){
+/*	Nothing to Copy since there are no atributes */
+Intern::Intern(Intern const & copy){
+	(void)copy;
 }
 
 //====================== OVERLOADS =====================//
 
-/*	In an Assignment Op. we have to asign all atributes 
-	that are not const */
-PresidentialForm & PresidentialForm::operator=(PresidentialForm const & ref){
+/*	Nothing to assign all interns are the same */
+Intern & Intern::operator=(Intern const & ref){
 
-	if(this != &ref)
-	{
-		this->_target = ref._target;
-	}
+	(void)ref;
 	return (*this);
-}
-
-std::ostream & operator<<( std::ostream & o, const PresidentialForm & rhs){
-	
-	o <<GREEN<< rhs.getName()
-		<<YLLW<<" Sign Grade is : "<<GREEN<< rhs.getSignGrade()<<RESET
-		<<YLLW<<" and Execute Grade is : "<<GREEN<<rhs.getExecGrade();
-		if (rhs.getSignState())
-			o<< RED<<" || The PresidentialForm is Signed"<<RESET<< std::endl;
-		else
-			o<< RED<<" || The PresidentialForm is Not Signed"<< RESET<<std::endl;
-
-	return o;
 }
 
 //====================== ACCESSORS =====================//
 
-std::string	PresidentialForm::getTarget( void )const{
-	return this->_target;
-}
-
-void	PresidentialForm::execute(const Bureaucrat & executor)const{
-
-	if(this->_signedState == false )
-		throw FormNotSignedException();
-	else if(executor.getGrade() > this->_gradeToBeExec)
-		throw GradeTooLowException();
-	else
-		std::cout <<GREEN<< this->_target <<YLLW<< " was pardoned by Zaphod Beeblebrox\n" <<RESET<<std::endl;
-}
 //====================== METHODS =====================//
+
+const char* Intern::InternException::what() const throw()
+{
+	return ("\e[31mIntern spills Coffee in the Form and ruins the Form... Intern Cleans full of tears\e[0m");
+}
+
+Form	*Intern::new_robo(std::string target)
+{
+	Form	*robo = new RobotomyRequestForm(target);
+	return (robo);
+}
+
+Form	*Intern::new_president(std::string target)
+{
+	Form	*president = new PresidentialPardonForm(target);
+	return (president);
+}
+
+Form*	Intern::new_shrub(std::string target)
+{
+	Form	*shrub = new ShrubberyCreationForm(target);
+	return (shrub);
+}
+
+Form *Intern::makeForm(std::string form_name, std::string form_target)
+{
+	Form*	(Intern::*functionArray[])(std::string target) = {
+			&Intern::new_robo,
+			&Intern::new_president,
+			&Intern::new_shrub
+	};
+	std::string	form[3] = {"Robotomy form", "Presidential pardon Form", "Shrubbery creation Form"};
+	Form	*ret = NULL;
+	for (int i = 0; i < 3; i++)
+	{
+		if (form[i] == form_name)
+		{
+			//ret = *(functionArray[i])(form_target);
+			ret = (this->*functionArray[i])(form_target);
+			std::cout<<GREEN << "Intern creates "<<form[i] <<" for "<<RED<<form_target<<RESET<< std::endl;
+			return (ret);
+		}
+		else
+			throw (InternException());
+	}
+	return (ret);
+}
 

@@ -6,7 +6,7 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/09/16 12:02:34 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/09/16 14:33:25 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC_FLAGS	=	-Wall -Werror -Wextra  -std=c++98
 CC_FLAGS += -g
 RM			=	rm -rf
 DIR_OBJS	=	./obj/
-SRC			=	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRC			=	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJS 		=	$(SRC:%.cpp=$(DIR_OBJS)%.o)
 
 all:			$(NAME)
