@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-
 //====================== CONSTRUCTORS =====================//
 RobotomyRequestForm::RobotomyRequestForm()
 :Form("Default Robotomy Form", 25, 45), _target("Default Target"){
@@ -65,7 +64,7 @@ void	RobotomyRequestForm::execute(const Bureaucrat & executor)const{
 		throw FormNotSignedException();
 	else if(executor.getGrade() > this->_gradeToBeExec)
 		throw GradeTooLowException();
-	int success = arc4random() % 2;
+	int success = rand() % 2;
 	std::cout <<RED<< "<<<<<INTENSE DRILLING NOISES!!!>>>>\n" <<RESET<<std::endl;
 	if (success == 1)
 		std::cout <<GREEN<< this->_target <<YLLW<< " Has been robotomized\n" <<RESET<<std::endl;

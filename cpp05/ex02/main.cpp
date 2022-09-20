@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:17:03 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 19:30:32 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/17 01:54:37 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int main(void)
 	Form*		form3 = new RobotomyRequestForm("Svenja");
 	
 	
+	milton.decrementGrade();
+	std::cout<<milton<<std::endl;
 	//execute all forms 
 	try{
 		milton.signForm(*form1);
