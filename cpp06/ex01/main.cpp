@@ -6,22 +6,27 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 09:12:46 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/21 12:00:35 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/21 13:42:06 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Converter.hpp"
+#include "Data.hpp"
 
-int main(int argc, char **argv) {
-	if (argc == 2) {
-		try {
-			Converter convertor(argv[1]);
-			convertor.print();
-		}
-		catch (std::exception &e) {
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	else
-		std::cerr << "usage : ./convert [literal] (only one)" << std::endl;
+int main() {
+	
+	Data		obj;
+	Data*		result;
+	uintptr_t	any;
+	
+	obj.string_ = "String";
+	obj.int_= 42;
+	obj.char_= 'a';
+
+	std::cout <<GREEN<< obj.char_<<RESET<<std::endl;
+	std::cout <<GREEN<< obj.int_<<RESET<<std::endl;
+	std::cout <<GREEN<< obj.string_<<RESET<<std::endl;
+	
+	std::cout <<RED<< result->char_<<RESET<<std::endl;
+	std::cout <<RED<< result->int_<<RESET<<std::endl;
+	std::cout <<RED<< result->string_<<RESET<<std::endl;
 }

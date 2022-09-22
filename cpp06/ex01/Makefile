@@ -6,17 +6,17 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/09/21 11:41:50 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/09/21 13:37:29 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	bureau
-CC_FLAGS	=	-Wall -Werror -Wextra -std=c++98 -g
+NAME 		=	reinterpret
+CC_FLAGS	=	-Wall -Werror -Wextra  -std=c++98
 
 CC_FLAGS += -g
 RM			=	rm -rf
 DIR_OBJS	=	./obj/
-SRC			=	main.cpp Bureaucrat.cpp Form.cpp
+SRC			=	main.cpp Data.cpp
 OBJS 		=	$(SRC:%.cpp=$(DIR_OBJS)%.o)
 
 all:			$(NAME)
@@ -37,7 +37,7 @@ $(DIR_OBJS):
 				@mkdir $@
 
 clean:
-				@$(RM) $(DIR_OBJS)
+				@$(RM) $(DIR_OBJS) *_shrubbery
 				@tput setaf 01 && printf "\n     object files  deleted.\n"
 				
 fclean:			clean

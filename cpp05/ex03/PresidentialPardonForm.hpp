@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:32:18 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 12:00:41 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:56:23 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@
 #define						RESET "\e[0m"
 
 
-class PresidentialPardonForm: public Form{
-private:
-	std::string	_target;
+class	PresidentialPardonForm: public Form{
+	private:
+		std::string	_target;
+		
+	public:
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(const PresidentialPardonForm& copy);
+		PresidentialPardonForm & operator=(const PresidentialPardonForm & ref);
+		virtual ~PresidentialPardonForm();
 	
-public:
-	PresidentialPardonForm();
-	PresidentialPardonForm(std::string target);
-	PresidentialPardonForm(const PresidentialPardonForm& copy);
-	PresidentialPardonForm & operator=(const PresidentialPardonForm & ref);
-	virtual ~PresidentialPardonForm();
-
-	std::string	getTarget(void)const;
-	void	execute(const Bureaucrat & executor)const;
+		std::string	getTarget(void)const;
+		void	execute(const Bureaucrat & executor)const;
 };
 
 	std::ostream&	operator<<(std::ostream & o, const PresidentialPardonForm& rhs);

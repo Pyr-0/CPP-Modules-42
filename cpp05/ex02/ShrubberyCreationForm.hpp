@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:32:18 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/15 22:32:02 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:52:26 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,20 @@
 
 
 class ShrubberyCreationForm: public Form{
-private:
-	std::string	_target;
+	private:
+		std::string	_target;
+		
+	public:
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(const ShrubberyCreationForm& copy);
+		ShrubberyCreationForm & operator=(const ShrubberyCreationForm & ref);
+		virtual ~ShrubberyCreationForm();
 	
-public:
-	ShrubberyCreationForm();
-	ShrubberyCreationForm(std::string target);
-	ShrubberyCreationForm(const ShrubberyCreationForm& copy);
-	ShrubberyCreationForm & operator=(const ShrubberyCreationForm & ref);
-	virtual ~ShrubberyCreationForm();
-
-	std::string	getTarget(void)const;
-	void	execute(const Bureaucrat & executor)const;
+		std::string	getTarget(void)const;
+		void	execute(const Bureaucrat & executor)const;
 };
 
 	std::ostream&	operator<<(std::ostream & o, const ShrubberyCreationForm& rhs);
-
 
 #endif

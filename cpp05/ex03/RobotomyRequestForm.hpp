@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:32:18 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 00:18:26 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:57:22 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 #include <cstdlib>
-
-
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -44,6 +42,5 @@ public:
 };
 
 	std::ostream&	operator<<(std::ostream & o, const RobotomyRequestForm& rhs);
-
 
 #endif

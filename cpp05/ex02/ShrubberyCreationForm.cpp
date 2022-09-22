@@ -13,6 +13,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 //====================== CONSTRUCTORS =====================//
+
 ShrubberyCreationForm::ShrubberyCreationForm()
 :Form("Default Name", 145, 137), _target("Default Target"){
 
@@ -29,8 +30,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & copy)
 
 //====================== OVERLOADS =====================//
 
-/*	In an Assignment Op. we have to asign all atributes 
-	that are not const */
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & ref){
 
 	if(this != &ref)
@@ -83,5 +82,4 @@ void	ShrubberyCreationForm::execute(const Bureaucrat & executor)const{
 		}
 	}
 }
-//====================== METHODS =====================//
 

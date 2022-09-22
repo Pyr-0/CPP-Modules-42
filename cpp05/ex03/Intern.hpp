@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:32:18 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 19:13:32 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:55:15 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ class	Intern{
 			public:
 			const char*	what()const throw();
 		};
-		
 };
 
 #endif

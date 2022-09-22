@@ -14,6 +14,7 @@
 #include <cstdlib>
 
 //====================== CONSTRUCTORS =====================//
+
 RobotomyRequestForm::RobotomyRequestForm()
 :Form("Default Robotomy Form", 25, 45), _target("Default Target"){
 
@@ -30,8 +31,6 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & copy)
 
 //====================== OVERLOADS =====================//
 
-/*	In an Assignment Op. we have to asign all atributes 
-	that are not const */
 RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm const & ref){
 
 	if(this != &ref)
@@ -66,12 +65,10 @@ void	RobotomyRequestForm::execute(const Bureaucrat & executor)const{
 		throw FormNotSignedException();
 	else if(executor.getGrade() > this->_gradeToBeExec)
 		throw GradeTooLowException();
-	int success = rand() % 2;
+	int success = arc4random() % 2;
 	std::cout <<RED<< "<<<<<INTENSE DRILLING NOISES!!!>>>>\n" <<RESET<<std::endl;
 	if (success == 1)
 		std::cout <<GREEN<< this->_target <<YLLW<< " Has been robotomized\n" <<RESET<<std::endl;
 	else
 		throw FailureException();
 }
-//====================== METHODS =====================//
-

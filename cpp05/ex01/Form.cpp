@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:31:48 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 20:52:20 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:40:32 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ Form::~Form(){}
 
 /*	Constant atributes can still be initialized in the init 
 	list of a constructor */
-Form::Form(Form const & copy): _name(copy._name), _gradeToBeSigned(copy._signedState), _gradeToBeExec(copy._gradeToBeExec), _signedState(copy._signedState){
+Form::Form(Form const & copy): _name(copy._name), _gradeToBeSigned(copy._signedState),
+_gradeToBeExec(copy._gradeToBeExec), _signedState(copy._signedState){
+
 	*this = copy;
 }
 

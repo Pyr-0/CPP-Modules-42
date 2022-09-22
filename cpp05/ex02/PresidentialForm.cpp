@@ -13,6 +13,7 @@
 #include "PresidentialForm.hpp"
 
 //====================== CONSTRUCTORS =====================//
+
 PresidentialForm::PresidentialForm()
 :Form("Default Presidential Form", 25, 5), _target("Default Target"){
 
@@ -29,8 +30,6 @@ PresidentialForm::PresidentialForm(PresidentialForm const & copy)
 
 //====================== OVERLOADS =====================//
 
-/*	In an Assignment Op. we have to asign all atributes 
-	that are not const */
 PresidentialForm & PresidentialForm::operator=(PresidentialForm const & ref){
 
 	if(this != &ref)
@@ -68,5 +67,3 @@ void	PresidentialForm::execute(const Bureaucrat & executor)const{
 	else
 		std::cout <<GREEN<< this->_target <<YLLW<< " was pardoned by Zaphod Beeblebrox\n" <<RESET<<std::endl;
 }
-//====================== METHODS =====================//
-

@@ -6,25 +6,30 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 07:34:31 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/20 19:17:12 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/21 12:58:50 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Converter.hpp"
 
-Converter::Converter(const std::string &input)
+bool	Converter::isChar(const std::string & input){
+	if(std::isprint(input[0]) && input.length() == 1)
+	{
+		static_cast<double &>(value_) = input[0];
+		return true;
+	}
+	return false;
+}
+Converter::Converter( const std::string &input)
 	: input_(input), value_(0.0)
 {
 	try {
-		
-	std::cout << "1 "  << value_ << std::endl;
-	std::cout << "input "  << input.c_str() << std::endl;
-		
-		const_cast<double &>(value_) = strtod(input.c_str(), 0);
-	std::cout << "2 "  << value_ << std::endl;
-		
-	} catch (std::exception &e) {
+		if (isChar(input))
+			return ;
+		static_cast<double &>(value_) = std::stod(input, NULL);
+	}
+	catch (std::exception &e) {
 		throw e;
 	}
 }
@@ -33,7 +38,6 @@ Converter::~Converter(void) {}
 const std::string &Converter::get_input(void) const { return input_; }
 
 const double& Converter::get_value(void) const { 
-	std::cout << "whats happening here "  << value_ << std::endl;
 	return value_; }
 
 void Converter::print(void) const {
@@ -56,7 +60,6 @@ static int myIsinf(double x) { return !myIsnan(x) && myIsnan(x - x); }
 
 void Converter::print_to_char(void) const {
 	double value = get_value();
-	std::cout << value << std::endl;
 
 	std::cout << "char: ";
 	if (myIsnan(value) || myIsinf(value))
@@ -71,7 +74,10 @@ void Converter::print_to_int(void) const {
 	double value = get_value();
 
 	std::cout << "int: ";
-	if (myIsnan(value) || myIsinf(value))
+	if (myIsnan(value) || myIsinf(value) )
+		std::cout << "impossible" << std::endl;
+	else if (value > std::numeric_limits<int>::max()
+			|| value < std::numeric_limits<int>::lowest())
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(value) << std::endl;

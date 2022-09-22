@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:10:06 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/15 21:43:03 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:44:59 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-class Form;
+class	Form;
 
-class Bureaucrat{
+class	Bureaucrat{
 
 	private:
 		const std::string		_name;
@@ -54,9 +54,9 @@ class Bureaucrat{
 			const char* what() const throw(); // we place throw at the end to avoid for throw to be used inside the what function
 		};
 
-		class GradeTooLowException: public std::exception{ //we create a new class  that inherits from exception class in order to use the func what()
+		class GradeTooLowException: public std::exception{
 			public:
-			const char* what() const throw(); // we place throw at the end to avoid for throw to be used inside the what function
+			const char* what() const throw();
 		};
 };
 

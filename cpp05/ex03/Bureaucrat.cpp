@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:31:37 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 21:00:29 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:53:01 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Bureaucrat.hpp"
 
 //====================== CONSTRUCTORS =====================//
+
 Bureaucrat::Bureaucrat():_name("Default Name"), _grade(75){}
 
 Bureaucrat::Bureaucrat(std::string name, int grade):_name(name), _grade(grade){

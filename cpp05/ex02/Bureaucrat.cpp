@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:31:37 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 18:50:18 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:44:32 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ Bureaucrat::Bureaucrat():_name("Default Name"), _grade(75){
 
 }
 
-/*	what is printing the error and throw returns the error*/
 Bureaucrat::Bureaucrat(std::string name, int grade):_name(name), _grade(grade){
 
 	if(grade < 1)
@@ -71,6 +70,7 @@ void					Bureaucrat::setGrade(int grade){
 //====================== METHODS =====================//
 /*	We can throw() our specific error/exceptions 
 	inside of other functions */
+
 void				Bureaucrat::incrementGrade( void ){
 
 	this->_grade--;
@@ -87,9 +87,6 @@ void				Bureaucrat::decrementGrade( void ){
 
 //====================== EXCEPTIONS =====================//
 
-/*	Here we Overloading the what() function, customizing 
-	it so i have my own error message, BUT we cannot THROW() in  here
-	and that is why the syntax says "const throw()" */
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
 
 	return ("Grade its too Low\n");
@@ -108,7 +105,7 @@ void	Bureaucrat::signForm(Form & form){
 		form.beSigned(*this);
 		std::cout<<GREEN<<this->_name<<RED<<" SIGNED "<<GREEN<<form.getName()<<std::endl;
 	}
-	catch(std::exception & exception){
+	catch (std::exception & exception){
 		std::cout<<GREEN<<this->_name<<RED<<" COULD NOT SIGN "<<GREEN<<form.getName()
 		<<RED<<" because "<< exception.what()<< std::endl;
 	}
@@ -117,15 +114,12 @@ void	Bureaucrat::signForm(Form & form){
 
 //====================== Ex02 =====================//
 
-void Bureaucrat::executeForm(Form const & form)
-{
-	try
-	{
+void Bureaucrat::executeForm(Form const & form){
+	try{
 		form.execute(*this);
 		std::cout <<GREEN<< this->_name << YLLW<< " sucesfully executed " <<GREEN<< form <<RESET << std::endl;
 	}
-	catch (std::exception &e)
-	{
+	catch (std::exception &e){
 		std::cout<< RED<< e.what() <<RESET<< std::endl;
 	}
 }

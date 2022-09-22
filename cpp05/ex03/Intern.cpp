@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:31:48 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 19:39:35 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:55:07 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,27 @@ Intern & Intern::operator=(Intern const & ref){
 
 //====================== EXCEPTION =====================//
 
-const char* Intern::InternException::what() const throw()
-{
+const char* Intern::InternException::what() const throw(){
+
 	return ("\e[31mIntern spills Coffee while making the Form and ruins it... Intern Cleans up full of tears\e[0m");
 }
 
 //====================== METHODS =====================//
 
-Form	*Intern::roboForm(std::string target)
-{
+Form	*Intern::roboForm(std::string target){
+
 	Form	*robo = new RobotomyRequestForm(target);
 	return (robo);
 }
 
-Form	*Intern::presiForm(std::string target)
-{
+Form	*Intern::presiForm(std::string target){
+
 	Form	*president = new PresidentialPardonForm(target);
 	return (president);
 }
 
-Form*	Intern::shrubForm(std::string target)
-{
+Form*	Intern::shrubForm(std::string target){
+
 	Form	*shrub = new ShrubberyCreationForm(target);
 	return (shrub);
 }
@@ -80,4 +80,3 @@ Form *Intern::makeForm(std::string form_name, std::string form_target)
 	}
 	return (ret);
 }
-

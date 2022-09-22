@@ -13,6 +13,7 @@
 #include "PresidentialPardonForm.hpp"
 
 //====================== CONSTRUCTORS =====================//
+
 PresidentialPardonForm::PresidentialPardonForm()
 :Form("Default Presidential Form", 25, 5), _target("Default Target"){
 
@@ -29,8 +30,6 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & co
 
 //====================== OVERLOADS =====================//
 
-/*	In an Assignment Op. we have to asign all atributes 
-	that are not const */
 PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & ref){
 
 	if(this != &ref)
@@ -68,5 +67,3 @@ void	PresidentialPardonForm::execute(const Bureaucrat & executor)const{
 	else
 		std::cout <<GREEN<< this->_target <<YLLW<< " was pardoned by Zaphod Beeblebrox\n" <<RESET<<std::endl;
 }
-//====================== METHODS =====================//
-

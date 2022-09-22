@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 00:17:03 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/16 20:12:16 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:36:45 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void	check_leaks(){
 
 void test1()
 {
-	Bureaucrat	milton("Milton", 5);
+	Bureaucrat	Obama("Obama", 5);
 	Intern		ken;
 	Form*		internform;
 
-	// milton.executeForm(*internform);
+	// Obama.executeForm(*internform);
 	try{
 		internform = ken.makeForm("Robotomy form", "Simpleton");
-		milton.signForm(*internform);
-		internform->execute(milton); //FORMS HAVE NO TRY CATCH INBUILT, so either this or line 34 (same)
+		Obama.signForm(*internform);
+		internform->execute(Obama); //FORMS HAVE NO TRY CATCH INBUILT, so either this or line 32 (same)
 	}
 	catch (std::exception &e){
 		std::cout<<RED<< e.what()<<RESET<<std::endl;
