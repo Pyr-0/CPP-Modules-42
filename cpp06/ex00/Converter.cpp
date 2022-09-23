@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 07:34:31 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/23 22:24:04 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/23 23:10:16 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	Converter::print_to_char(void) const {
 	std::cout << "char: ";
 	if (myIsnan(value) || myIsinf(value))
 		std::cout << "impossible" << std::endl;
-	else if (not std::isprint(value))
+	else if (! std::isprint(value))
 		std::cout << "Non displayable" << std::endl;
 	else
 		std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
@@ -108,7 +108,10 @@ void Converter::print_to_double(void) const {
 bool	Converter::isChar(const std::string & input){
 	if(std::isprint(input[0]) && input.length() == 1)
 	{
-		static_cast<double &>(value_) = input[0];
+		if(isdigit(input.c_str()[0]))
+			static_cast<double &>(value_) = stoi(input);
+		else 
+			static_cast<double &>(value_) = input[0];
 		return true;
 	}
 	return false;

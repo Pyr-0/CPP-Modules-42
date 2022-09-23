@@ -27,6 +27,7 @@ It is worth noting that this guide is simply my own review on the topics in base
 - Implicit type conversion operates automatically when the compatible data type is found.
 - Explicit type conversion requires a type casting operator.
 
+
 ## Ex00 <a name = "Ex00"></a>
 
 This first exercise was developed using the concept of 
