@@ -6,24 +6,17 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 07:34:31 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/21 12:58:50 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/23 20:04:35 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Converter.hpp"
+//====================== CONSTRUCTORS =====================//
 
-bool	Converter::isChar(const std::string & input){
-	if(std::isprint(input[0]) && input.length() == 1)
-	{
-		static_cast<double &>(value_) = input[0];
-		return true;
-	}
-	return false;
-}
 Converter::Converter( const std::string &input)
-	: input_(input), value_(0.0)
-{
+	: input_(input), value_(0.0){
+
 	try {
 		if (isChar(input))
 			return ;
@@ -33,12 +26,20 @@ Converter::Converter( const std::string &input)
 		throw e;
 	}
 }
+
 Converter::~Converter(void) {}
+
+//====================== ACCESSORS =====================//
 
 const std::string &Converter::get_input(void) const { return input_; }
 
 const double& Converter::get_value(void) const { 
 	return value_; }
+
+//====================== METHODS =====================//
+
+static int myIsnan(double x) { return x != x; }
+static int myIsinf(double x) { return !myIsnan(x) && myIsnan(x - x); }
 
 void Converter::print(void) const {
 
@@ -55,10 +56,7 @@ void Converter::print(void) const {
 	std::cout.precision(6);
 }
 
-static int myIsnan(double x) { return x != x; }
-static int myIsinf(double x) { return !myIsnan(x) && myIsnan(x - x); }
-
-void Converter::print_to_char(void) const {
+void	Converter::print_to_char(void) const {
 	double value = get_value();
 
 	std::cout << "char: ";
@@ -105,4 +103,13 @@ void Converter::print_to_double(void) const {
 	}
 	else
 		std::cout << "double: " << value << std::endl;
+}
+
+bool	Converter::isChar(const std::string & input){
+	if(std::isprint(input[0]) && input.length() == 1)
+	{
+		static_cast<double &>(value_) = input[0];
+		return true;
+	}
+	return false;
 }
