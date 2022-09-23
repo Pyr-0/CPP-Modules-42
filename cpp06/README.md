@@ -3,9 +3,10 @@
 ## Table of Contents
 
 - [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+- [Ex00](#Ex00)
+- [Ex01](#Ex01)
+- [Ex02](#Ex02)
+- [Resources](#Resources)
 
 ## About <a name = "about"></a>
 
@@ -16,7 +17,9 @@ It is worth noting that this guide is simply my own review on the topics in base
 
 ## Ex00 <a name = "Ex00"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+This first exercise was developed using the concept of 
+```static_cast```. 
+
 
 ### Prerequisites
 
