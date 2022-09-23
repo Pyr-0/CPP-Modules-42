@@ -3,9 +3,10 @@
 ## Table of Contents
 
 - [About](#about)
-- [Ex00](#Ex00)
-- [Ex01](#Ex01)
-- [Ex02](#Ex02)
+- [Key Notions](#keynotions)
+- [Ex00](#ex00)
+- [Ex01](#ex01)
+- [Ex02](#ex02)
 - [Resources](#Resources)
 
 ## About <a name = "about"></a>
@@ -15,11 +16,21 @@ In this set of exercises we will learn about the different types of casting in C
 _DISCLAIMER_ \
 It is worth noting that this guide is simply my own review on the topics in base of what the tasks for each exercises lead me to do research on, that means this are  over simplified notions of the topics and by no means a complete lecture on Type casting.
 
+
+## Key Notions <a name = "Key Notions"></a>
+
+
+- Typecasting is also called as type conversion
+- It means converting one data type into another.
+- Converting smaller data type into a larger one is also called as type promotion.
+- There are two type of type conversion: implicit and explicit type conversion in C.
+- Implicit type conversion operates automatically when the compatible data type is found.
+- Explicit type conversion requires a type casting operator.
+
 ## Ex00 <a name = "Ex00"></a>
 
 This first exercise was developed using the concept of 
 ```static_cast```. 
-
 
 ### Prerequisites
 

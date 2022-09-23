@@ -6,7 +6,7 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/09/20 09:44:33 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/09/23 21:41:31 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(NAME):		$(OBJS)
 				@tput setaf 05 && printf "*********************************\n"
 				@tput setaf 05 && printf "* Sources Succesfully Compiled! *\n"
 				@$(CXX) $(CC_FLAGS) $(OBJS) -o $(NAME)
-				@tput setaf 013 && printf "*   Executable \e[01m\e[04m$(NAME)\e[0m\e[33m created    *\e[0m\n"
+				@tput setaf 013 && printf "* Executable \e[01m\e[04m$(NAME)\e[0m\e[33m created  *\e[0m\n"
 				@tput setaf 05 && printf "*********************************\n"
 
 $(OBJS):		$(DIR_OBJS)

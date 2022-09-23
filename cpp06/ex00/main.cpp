@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 09:12:46 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/21 12:00:35 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/23 22:25:22 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int main(int argc, char **argv) {
 		}
 	}
 	else
-		std::cerr << "usage : ./convert [literal] (only one)" << std::endl;
+		std::cerr<<RED << "Use : ./convert [literal] (only one element)" <<RESET<< std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 07:34:31 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/23 20:04:35 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/23 22:24:04 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,17 @@ static int myIsinf(double x) { return !myIsnan(x) && myIsnan(x - x); }
 
 void Converter::print(void) const {
 
-	std::cout << std::showpoint;
-	std::cout.setf(std::ios::fixed);
-	std::cout.precision(1);
+	std::cout << std::showpoint;//displays decimal value
+	std::cout.setf(std::ios::fixed);//write floating-point values in fixed-point notation
+	std::cout.precision(2);//write as many decimals as needed
 
 	print_to_char();
 	print_to_int();
 	print_to_float();
 	print_to_double();
 
-	std::cout.unsetf(std::ios::fixed);
-	std::cout.precision(6);
+	std::cout.unsetf(std::ios::fixed);//Flags must be unset
+	std::cout.precision(2);
 }
 
 void	Converter::print_to_char(void) const {
