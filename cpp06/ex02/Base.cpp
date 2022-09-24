@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/24 19:28:36 by mrojas-e          #+#    #+#             */
+/*   Updated: 2022/09/24 19:28:36 by mrojas-e         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -33,7 +45,7 @@ Base*	generate(void){
 	return NULL;
 }
 
-/*	This function identifies the Type by its Address
+/*	This function identifies the Type by its Address but wont check for errors within itself
 	the rule for dynamic cast is that it can only be used
 	in VIRTUAL ABSTRACT CLASSES*/
 
@@ -49,7 +61,8 @@ void identify(Base* p)
 		msg("Unknown Type");
 }
 
-/*	This function identifies the Type by its Address */
+/*	This function identifies the Type by its refference , and it will protect against errors inside
+	of itself in case that the casting isnt possible */
 void	identify(Base& p){
 	
 	try{
