@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 09:12:46 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/24 19:05:09 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/24 21:26:09 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	test2(){
 	std::cout <<GREEN<< obj.string_<<RESET<<std::endl;
 	
 	std::cout << std::endl;
-	std::cout<<GREEN << "VALUES FROM DESERIALIZING:"<<RESET<< std::endl;
+	std::cout<<GREEN << "VALUES FROM SERIALIZING:"<<RESET<< std::endl;
 	std::cout<<GREEN << "----------------------------" <<RESET<< std::endl;
 	std::cout <<RED<< result->char_<<RESET<<std::endl;
 	std::cout <<RED<< result->int_<<RESET<<std::endl;

@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:28:36 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/24 19:28:36 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/24 21:25:24 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ Base*	generate(void){
 void identify(Base* p)
 {
 	if (dynamic_cast<A *>(p))
-		msg("Type is A poiter");
+		msg("Type is A pointer");
 	else if (dynamic_cast<B *>(p))
-		msg("Type is B poiter");
+		msg("Type is B pointer");
 	else if (dynamic_cast<C *>(p))
-		msg("Type is C poiter");
+		msg("Type is C pointer");
 	else
 		msg("Unknown Type");
 }
