@@ -89,13 +89,8 @@ Here is the syntax used in c++ to conjure a [Reinterpret cast](#reinterpret-cast
 	#include <iostream>
 
 	//Here we asume of x to be a different data type from where we want to cast
-	std::reinterpret_cast<char>(x);
+	std::reinterpret_cast<uintptr_t>(*x);
 
-	std::reinterpret_cast<int>(x);
-
-	std::reinterpret_cast<float>(x);
-
-	std::reinterpret_cast<double>(x);
 ```
 ![alt text](https://i.imgflip.com/6uk77j.jpg)
 
