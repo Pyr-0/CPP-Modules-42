@@ -33,15 +33,13 @@ It is worth noting that this guide is simply my own review on the topics in base
 
 ## About <a name = "about"></a>
 
-In this set of exercises we will learn about the different types of casting in C++, in the [Ex00](#Ex00) exercise we will be making a "Converter" for casting multiple types onto one another using ```static_cast```, on the [Ex01](#Ex01) exercise we will learn about ```reinterpret_cast``` and lastly we will dive into the topic of ```dynamic_cast``` in the [Ex02](#Ex02).
+In this set of exercises we will learn about Templates and their basic uses in C++, in the [Ex00](#Ex00) exercise we will create simple Template functions in order to get use to the syntax and the way to call our templates in a program , on the [Ex01](#Ex01) exercise we will learn about ```reinterpret_cast``` and lastly we will dive into the topic of ```dynamic_cast``` in the [Ex02](#Ex02).
 
 
 
 ## Key Words <a name = "Key Notions"></a>
 
-- [Static Cast](#static-cast)
-- [Reinterpret Cast](#reinterpreted-cast)
-- [Dynamic](#dynamic-cast)
+- [Templates](#templates)
 
 ## Previous Notions <a name = "Previous notions"></a>
 

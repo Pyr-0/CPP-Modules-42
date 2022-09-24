@@ -6,7 +6,56 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 22:59:05 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/24 22:59:05 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/25 00:08:59 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "whatever.hpp"
+
+int	main(){
+
+	// INT
+	int			n1 = 43;
+	int			n2 = -12;
+
+	// FLOAT
+	float		f1 = 0.0f;
+	float		f2 = -475.14f;
+
+	// STRING
+	std::string	s1 = "Watermelon";
+	std::string	s2 = "Bye";
+
+	// CHAR
+	char		c1 = 'a';
+	char		c2 = 'b';
+
+	// DOUBLE
+	double		d1 = 4.4;
+	double		d2 = 4.4;
+	
+
+	//---------------------------- TESTS -----------------------------------
+
+	// INT
+	::printTest(n1, n2, "Int");
+
+	// FLOAT
+	printTest(f1, f2, "Float");
+
+	// DOUBLE
+	printTest(d1, d2, "Double");
+
+	// STRING
+	printTest(s1, s2, "String");
+
+	// CHAR
+	printTest(c1, c2, "Char");
+	
+	int x;
+	
+	std::cout<<RED<< "TRYING OUT A NEW SYNTAX"<< std::endl;
+	x = ::min<int>(n1,n2);
+	std::cout<<RED<< "MINIMUM NUMBER IS: "<<x<< std::endl;
+
+}
