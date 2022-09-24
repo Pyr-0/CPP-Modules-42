@@ -156,9 +156,3 @@ Here's a list of useful links for further information about Type Casting in C++
 - https://www.youtube.com/watch?v=HlNVgmvX1EI
 
 - https://www.youtube.com/watch?v=pWZS1MtxI-A
-
-
-
-[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/) [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
-
-## License <a name = "usage"></a>
