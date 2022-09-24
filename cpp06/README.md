@@ -3,9 +3,9 @@
  <img width=200px height=200px src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">CPP06</h3>
+<h3 align="center">CPP06 - Module 6</h3>
 <p align="center"> C++ Casting
-    <br> 
+    <br>
 </p>
 <div align="center">
 
