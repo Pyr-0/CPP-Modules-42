@@ -24,7 +24,6 @@
 - [Exercise 02: Identify Real Type](#ex02)
 - [Summary](#summary)
 <br />
-<br />
 
 _DISCLAIMER_ ❗️ <br />
 It is worth noting that this guide is simply my own review on the topics in base of what the tasks for each exercises lead me to do research on, that means this are  over simplified notions of the topics and by no means a complete lecture on Type casting.
