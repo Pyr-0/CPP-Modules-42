@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 07:34:54 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/21 12:57:02 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/24 16:58:35 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ class	Converter{
 		Converter(void);
 		Converter(const Converter& origin);
 		Converter& operator=(const Converter &rhs);
-		void				print_to_char(void)const;
-		void				print_to_int(void)const;
-		void				print_to_float(void)const;
-		void				print_to_double(void)const;
+		void				printToChar(void)const;
+		void				printToInt(void)const;
+		void				printToFloat(void)const;
+		void				printToDouble(void)const;
 
 	public:
 		Converter( const std::string & input);
