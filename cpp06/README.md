@@ -97,7 +97,7 @@ Here is the syntax used in c++ to conjure a [Reinterpret cast](#reinterpret-cast
 
 	std::reinterpret_cast<double>(x);
 ```
-![alt text](https://imgflip.com/i/6uk77j)
+![alt text](https://i.imgflip.com/6uk77j.jpg)
 
 ## Exercise 02: Identify real type <a name = "Ex02"></a>
 
