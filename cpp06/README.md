@@ -14,7 +14,6 @@
 </div>
 
 ---
-
 ## 📝 Table of Contents
 
 - [About](#about)
@@ -24,13 +23,17 @@
 - [Exercise 01: Serialization](#ex01)
 - [Exercise 02: Identify Real Type](#ex02)
 - [Summary](#summary)
+<br />
+<br />
 
+	_DISCLAIMER_ ❗️<br />
+It is worth noting that this guide is simply my own review on the topics in base of what the tasks for each exercises lead me to do research on, that means this are  over simplified notions of the topics and by no means a complete lecture on Type casting.
+
+---
 ## About <a name = "about"></a>
 
-In this set of exercises we will learn about the different types of casting in C++, in the [Ex00](#Ex00) exercise we will be making a "Converter" for casting multiple types onto one another using ```static_cast```, on the [Ex01](#Ex01) exercise we will learn about ```reinterpret_cast``` and lastly we will dive into the topic of ```dynamic_cast``` in the [Ex02](#Ex02).
+In this set of exercises we will learn about the different types of casting in C++, in the [Ex00](#ex00) exercise we will be making a "Converter" for casting multiple types onto one another using ```static_cast```, on the [Ex01](#ex01) exercise we will learn about ```reinterpret_cast``` and lastly we will dive into the topic of ```dynamic_cast``` in the [Ex02](#ex02).
 
-_DISCLAIMER_ \
-It is worth noting that this guide is simply my own review on the topics in base of what the tasks for each exercises lead me to do research on, that means this are  over simplified notions of the topics and by no means a complete lecture on Type casting.
 
 
 ## Key Words <a name = "Key Notions"></a>
@@ -69,7 +72,7 @@ C++ offers 5 types of casts:
 - ```reinterpret_cast```: the most open cast. No semantics check. The most suitable case is to change the type of some raw data, or you want to convert the type of one data to another type that is usable by your program.
 
 
-## Exercise 00: Conversion of scalar types <a name = "Ex00"></a>
+## Exercise 00: Conversion of scalar types <a name = "ex00"></a>
 
 This first exercise was developed using the concept of ```static_cast```, and this method of casting was chosen due to the implicit type conversion that is required throughout each of the required tasks.
 
@@ -91,7 +94,7 @@ Here is the syntax used in c++ to conjure a [Static cast](#static-cast):
 	std::static_cast<double>(x);
 ```
 
-## Exercise 01: Serialization <a name = "Ex01"></a>
+## Exercise 01: Serialization <a name = "ex01"></a>
 
 This second exercise uses the  ```reinterpret_cast```. This cast will allow you to do reinterpretation, as well as [__Downcast__](#downcast) and [__Upcast__](#upcast). It's a very open form of casting. Being the earlier a conversion of something broad into something specific, and the latter makes out of something specific something broader.
 
@@ -109,7 +112,7 @@ Here is the syntax used in c++ to conjure a [Reinterpret cast](#reinterpret-cast
 ```
 ![alt text](https://i.imgflip.com/6uk77j.jpg)
 
-## Exercise 02: Identify real type <a name = "Ex02"></a>
+## Exercise 02: Identify real type <a name = "ex02"></a>
 
 In this last exercise ```dynamic_cast``` is used in order to up/down cast along the hierarchy of the inheritance tree.
 
