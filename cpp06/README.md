@@ -4,21 +4,18 @@
 </p>
 
 <h3 align="center">CPP06</h3>
-
+<p align="center"> C++ Casting
+    <br> 
+</p>
 <div align="center">
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/) 
-
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
-
 </div>
 
-# C++ Casting
+---
 
-## 📝Table of Contents
+## 📝 Table of Contents
 
 - [About](#about)
 - [Keywords](#keywords)
@@ -161,6 +158,7 @@ Here's a list of useful links for further information about Type Casting in C++
 - https://www.youtube.com/watch?v=pWZS1MtxI-A
 
 
-## License <a name = "usage"></a>
 
 [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/) [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+
+## License <a name = "usage"></a>
