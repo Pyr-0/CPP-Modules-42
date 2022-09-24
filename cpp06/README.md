@@ -1,6 +1,24 @@
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.png" alt="Project logo"></a>
+</p>
+
+<h3 align="center">CPP06</h3>
+
+<div align="center">
+
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/) 
+
+[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+
+</div>
+
 # C++ Casting
 
-## Table of Contents
+## 📝Table of Contents
 
 - [About](#about)
 - [Keywords](#keywords)
@@ -128,8 +146,9 @@ Here is the syntax used in c++ to conjure a [Dynamic cast](#dynamic-cast):
 
 - Use ```dynamic_cast``` for converting pointers/references within an inheritance hierarchy  with polymorphic classes.
 
+#
 
-## Resources <a name = "usage"></a>
+## 📚 Resources <a name = "usage"></a>
 
 Here's a list of useful links for further information about Type Casting in C++
 
