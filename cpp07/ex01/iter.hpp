@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 00:14:43 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/25 00:25:23 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/25 11:24:26 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ void	doTheThing(T const &t)
 template< typename T>
 void ft_tests(T t, int len, std::string type)
 {
-	std::cout << RED << type <<RESET<< std::endl;
-	std::cout << "----------------------------" << std::endl;
-	iter(t, len, doTheThing);
 	std::cout << std::endl;
+	std::cout << RED << type <<RESET<< std::endl;
+	std::cout << "-------------------" << std::endl;
+	iter(t, len, doTheThing);
+	std::cout << std::endl<<std::endl;
 }
 
 #endif
