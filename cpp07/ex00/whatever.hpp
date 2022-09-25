@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 22:59:11 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/25 00:03:16 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:00:13 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	swap( T & x, T & y){
 }
 
 template< typename T >
-T const &	min( T const & x, T const & y) {
-	return x<y ? x : y;
+const T&	min(  T const & x, T const & y ) {
+	return x < y ? x : y;
 }
 
 template< typename T >
 T const &	max( T const & x, T const & y) {
-	return x>y ? x : y;
+	return x > y ? x : y;
 }
 
 // -------------------------- HELPER FUNCTIONS ------------------------------
@@ -62,7 +62,7 @@ void printTest(T a, T b, std::string type)
 	std::cout << "------" <<RESET <<std::endl;
 	std::cout <<YLLW<< "Before swapping: \n";
 	ft_print_pair(a, b);
-	swap(a, b);
+	::swap(a, b);
 	std::cout << "After swapping: \n";
 	ft_print_pair(a, b);
 	std::cout << std::endl;
