@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 00:14:43 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/25 00:25:23 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/27 12:23:36 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # define ITER_HPP
 
 #include <iostream>
-
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -26,8 +25,8 @@
 #define						RESET "\e[0m"
 
 template< typename T>
-void iter(T *array, int arrayLength, void myFunc(T const &ref))
-{
+void iter(T *array, int arrayLength, void myFunc(T const &ref)){
+
 	for(int i = 0; i < arrayLength; i++)
 		myFunc(array[i]);
 }
