@@ -6,12 +6,12 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/09/16 12:18:36 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/09/27 21:35:12 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		=	bureau
-CC_FLAGS	=	-Wall -Werror -Wextra  -std=c++98
+CC_FLAGS	=	-Wall -Werror -Wextra  -std=c++98 -j4
 
 CC_FLAGS += -g
 RM			=	rm -rf

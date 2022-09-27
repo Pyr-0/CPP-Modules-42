@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 12:29:52 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/27 13:24:58 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/27 23:26:12 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 #define						LILA "\e[35m"
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
+
+// if i define the functions outside of my template class array, do i have to use the 
+// template call again for each ? 
 
 template <typename T>
 class	Array{
@@ -62,7 +65,7 @@ class	Array{
 				delete [] this->arr_data_;
 			}
 			this->arr_data_ = new T[this->n_];
-			for (int i = 0; i < n_; i++){
+			for (unsigned int i = 0; i < n_; i++){
 				this->arr_data_[i] = rhs.arr_data_[i];
 			}
 			return *this;
@@ -71,13 +74,15 @@ class	Array{
 		T & operator[](int i){
 
 			if (i < 0 || (unsigned int)i >= n_)
-				throw BadNumException();
+				//throw BadNumException();
+				throw std::out_of_range("Bad index : Out of bounds ");
 			return arr_data_[i];
 		}
 
 		const T & operator[](int i) const{
 			if (i < 0 || (unsigned int)i >= n_){
-				throw BadNumException();
+				throw std::out_of_range("Bad index : Out of bounds ");
+				//throw BadNumException();
 			}
 			return arr_data_[i];
 		}
@@ -86,17 +91,30 @@ class	Array{
 			return n_;
 		}
 
-	 class BadNumException : public std::exception{
-		public:
-			const char * what() const throw(){
-				return "Bad index : Out of bounds ";
-			}
-	};
+		T	*getT( void ) const{
+			return (arr_data_);
+		}
+	//what is better , to use a getter with an index check, or to overload operator[] ???
+	//like this 
+	// T&	get(int index){
+	// 	if(index < 0 || index >=this->n_)
+	// 		throw ("Bad index : Out of bounds ");
+	// 	return this->arr_data_[index];
+	// }
+
+	// class BadNumException : public std::exception{
+	// 	public:
+	// 		const char * what() const throw(){
+	// 			return "Bad index : Out of bounds ";
+	// 		}
+	// };
 	
-	unsigned int	size( void ) const{
-		 return (_n);
-	}
 };
 
-
+template< typename T >
+std::ostream & operator<<(std::ostream & o, Array< T > const & ref){
+	for (unsigned int i = 0; i < ref.size(); i++)
+		std::cout << "T[" << i << "] : " << (ref.getT())[i] << std::endl;
+	return (o);
+}
 #endif
