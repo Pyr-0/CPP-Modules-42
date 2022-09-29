@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/25 00:14:43 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/29 14:08:45 by mrojas-e         ###   ########.fr       */
+/*   Created: 2022/09/28 18:58:35 by mrojas-e          #+#    #+#             */
+/*   Updated: 2022/09/29 14:06:26 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
-#ifndef ITER_HPP
-# define ITER_HPP
-
+#include <exception>
 #include <iostream>
+# include <algorithm>
+#include <vector>
+# include <list>
+# include <iterator>
+# include <array>
 
 //============COLORS!=======//
 #define						RED "\e[31m"
@@ -24,29 +29,14 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-//============ MAIN TEMPLATE ============//
-template< typename T>
-void	iter(T *array, int arrayLength, void myFunc(T const &ref)){
+template<typename T>
+typename T::const_iterator easyfind(const T &container, int element){
 
-	for(int i = 0; i < arrayLength; i++)
-		myFunc(array[i]);
-}
-
-//============ HELPER FUNCTIONS ============//
-
-template< typename T>
-void	doTheThing(T const &t)
-{
-	std::cout << t << " ";
-}
-
-template< typename T>
-void	ft_tests(T t, int len, std::string type)
-{
-	std::cout << RED << type <<RESET<< std::endl;
-	std::cout << "----------------------------" << std::endl;
-	iter(t, len, doTheThing);
-	std::cout << std::endl;
+	typename T::const_iterator result = std::find(container.begin(), container.end(), element);
+	
+	if (result == container.end())
+		throw std::out_of_range("Error: element not found!");
+	return result;
 }
 
 #endif

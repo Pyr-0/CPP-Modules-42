@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 22:59:05 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/25 14:50:33 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/28 22:26:46 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(){
 	float		f2 = -475.14f;
 
 	// STRING
-	std::string	s1 = "Watermelon";
-	std::string	s2 = "Bye";
+	std::string	s1 = "Hallo";
+	std::string	s2 = "Aloha dear coder";
 
 	// CHAR
 	char		c1 = 'a';
@@ -33,7 +33,6 @@ int	main(){
 	// DOUBLE
 	double		d1 = 4.4;
 	double		d2 = 4.4;
-	
 
 	//---------------------------- TESTS -----------------------------------
 
@@ -57,8 +56,7 @@ int	main(){
 	std::cout<<RED<< "TRYING OUT A NEW SYNTAX"<< std::endl;
 	x = min<int>(n1,n2);
 	std::cout<<RED<< "MINIMUM NUMBER IS: "<<x<< std::endl;
-	std::string z = min(s1,s2);
-	std::cout<<RED<< "MINIMUM NUMBER IS: "<<z<< std::endl;
-	//x = ::min<int>(n1,n2);
+	
+	//x = ::min<int>(n1,n2); //Another way of calling the function
 
 }

@@ -6,12 +6,12 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2022/09/28 17:17:00 by mrojas-e         ###   ########.fr        #
+#    Updated: 2022/09/28 19:02:45 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	iter
-CC_FLAGS	=	-Wall -Werror -Wextra  -std=c++98 
+NAME 		=	easy
+CC_FLAGS	=	-Wall -Werror -Wextra  -std=c++98
 
 CC_FLAGS += -g
 RM			=	rm -rf

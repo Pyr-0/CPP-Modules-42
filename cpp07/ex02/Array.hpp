@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 12:29:52 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/27 23:26:12 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:19:08 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@
 #define						YLLW "\e[33m"
 #define						RESET "\e[0m"
 
-// if i define the functions outside of my template class array, do i have to use the 
-// template call again for each ? 
-
 template <typename T>
 class	Array{
 	
@@ -36,20 +33,20 @@ class	Array{
 		unsigned int n_;
 
 	public:
-		Array():arr_data_(NULL), n_(0){}
+		Array():arr_data_(NULL), n_(0){} // Default constructor
 
-		Array(unsigned int n):n_(n){
+		Array(unsigned int n):n_(n){	// Custom Constructor
 
 			arr_data_ = new T[n];
 		}
 
-		Array(const Array& copy){
+		Array(const Array& copy){ // Copy constructor
 
 			this->arr_data_ = NULL;
 			*this = copy;
 		}
 
-		~Array(){
+		~Array(){ // Destructor
 
 			if (arr_data_ != NULL)
 				delete [] arr_data_;
@@ -94,13 +91,6 @@ class	Array{
 		T	*getT( void ) const{
 			return (arr_data_);
 		}
-	//what is better , to use a getter with an index check, or to overload operator[] ???
-	//like this 
-	// T&	get(int index){
-	// 	if(index < 0 || index >=this->n_)
-	// 		throw ("Bad index : Out of bounds ");
-	// 	return this->arr_data_[index];
-	// }
 
 	// class BadNumException : public std::exception{
 	// 	public:

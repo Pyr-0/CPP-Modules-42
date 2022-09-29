@@ -33,52 +33,81 @@ _It is worth noting that this guide is simply my own review on the topics in bas
 
 ## About <a name = "about"></a>
 
-In this set of exercises we will learn about Templates and their basic uses in C++, in the [Ex00](#Ex00) exercise we will create simple Template functions in order to get use to the syntax and the way to call our templates in a program , on the [Ex01](#Ex01) exercise we will learn about ```reinterpret_cast``` and lastly we will dive into the topic of ```dynamic_cast``` in the [Ex02](#Ex02).
+In this set of exercises we will learn about Templates and their basic uses in C++, in the [Ex00](#Ex00) exercise we will create simple ```Function Templates``` in order to get use to the syntax and the way to call our templates in a program, on the [Ex01](#Ex01) exercise we will impelement function templates to data type arrays, in order to serialize processes and apply actions (like printing the elements of an array) and lastly we will create a ```Class Template Array``` that creates an array of any data type in  [Ex02](#Ex02).
 
 
 
 ## Key Words <a name = "Key Notions"></a>
 
-- [Templates](#templates)
+- [Function Templates](#templates)
+- [Class Templates](#templates)
 
 ## Previous Notions <a name = "Previous notions"></a>
 
-
+- C++ templates is a programming model that allows plugging-in of any data-type to the code (templated code). Without template, you would need to replicate same code all over again and again, for all required data-types. And obviously, as said before, it requires code maintenance. 
 - Templates enable you to define the operations of a class or function, and let the user specify what concrete types those operations should work on.
+- Templates create "Placeholders" for generic types, allowing serialization of code , flexibility and reusability.
+
 
 C++ has 2 main uses of templates:
 <br /><br /> ![alt text](https://d1m75rqqgidzqn.cloudfront.net/wp-data/2022/09/15170233/image-8.png)
 
+### ```Classes Templates:```
 
-- ```Function Templates```:
-
-- ```Classes Templates```: 
+More often, you would design and use class templates, than function templates. In general, you use a class template to define an abstract type whose behavior is generic and is reusable, adaptable.
 
 ## Exercise 00: Start with a few functions <a name = "Ex00"></a>
 
 This first exercise introduces us to the concept of ```Function Templates```, and the use and call of custom templates in our programs.
 
-```static_cast``` is the first cast you should attempt to use. It does things like implicit conversions between types (such as int to float, or pointer to void*), and it can also call explicit conversion functions (or implicit ones).
+### ```Function Templates:```
 
-Here is the syntax used in c++ to conjure a [Static cast](#static-cast):
+Here is how the syntax of a [Function Template](#functiontemplate) is constructed:
 
+1. We need to define our ```< Content >``` 
+
+Where Content can be:
+- class T / typename T. \
+The use of ```<class TYPE>``` and ```<typename TYPE>``` for creating templates works the same way (so no need of getting confused like i did when i first saw it ;)).
+
+- A data type, which maps to T\
+The symbol T is nothing but some data-type, which can be any data-type, a basic datatype ```(int, double etc)```
+- An integral specification
+- An integral constant/pointer/reference which maps to specification mentioned above. 
+
+2. Under our template declaration we write our Function as we normally would, like follows:
 ```c++
-	template<class type>ret-type func-name(parameter list)
+	template<class type>
+	ret-type func-name(parameter list)
 	{
-	//body of the function
+		//body of the function
 	}
-	//Here we asume of x to be a different data type from where we want to cast
-	std::static_cast<char>(x);
-
 ```
 
-## Exercise 01: Serialization <a name = "Ex01"></a>
+## Syntax Example and usage
+```c++
+	//	We can the use our template with any data type we want 
+	//	and the compiler will identify our input
 
-This second exercise uses the  ```reinterpret_cast```. This cast will allow you to do reinterpretation, as well as [__Downcast__](#downcast) and [__Upcast__](#upcast). It's a very open form of casting. Being the earlier a conversion of something broad into something specific, and the latter makes out of something specific something broader.
+	template<typename TYPE>
+	void	printstuff(TYPE data)
+	{
+		std::cout << data<<std::endl;
+	}
 
-It is used primarily for particularly weird conversions and bit manipulations, like turning a raw data stream into actual data, or storing data in the low bits of a pointer to aligned data.
+	int main(){
+		printstuff(42);				//int
+		printstuff(21.21);			//double
+		printstuff('a');			// char
+		printstuff("Hello World");	//string
+	}
+```
+The first line of code ```template<class TYPE>```
+tells the compiler that this is a function-template. The actual meaning of ```TYPE``` would be deduced by compiler depending on the argument passed to this function. Here, the name, ```TYPE``` is known as template type parameter.
 
-Here is the syntax used in c++ to conjure a [Reinterpret cast](#reinterpret-cast):
+
+## Exercise 01: Iter <a name = "Ex01"></a>
+
 
 ```c++
 	//this will be the Library needed to use the multiple casting methods
@@ -92,15 +121,6 @@ Here is the syntax used in c++ to conjure a [Reinterpret cast](#reinterpret-cast
 
 ## Exercise 02: Identify real type <a name = "Ex02"></a>
 
-In this last exercise ```dynamic_cast``` is used in order to up/down cast along the hierarchy of the inheritance tree.
-
-This Cast form safely converts pointers and references to classes up, down, and sideways along the inheritance hierarchy.
-
-```dynamic_cast```  means that the cast is checked dynamically (when the program is executing / at run time). So the dynamic cast may fail at run time, so you have to handle the potential failures within your code. All other casts are made during compilation and it's done in a static way.
-
-You can only apply this operator to pointers and references to ```polymorphic class``` types, which are class types that contain at least one virtual function. The reason is that only pointers to polymorphic class types contain the information that the ```dynamic_cast<>()``` operator needs to check the validity of the conversion.
-
-Here is the syntax used in c++ to conjure a [Dynamic cast](#dynamic-cast):
 
 ```c++
 	//this will be the Library needed to use the multiple casting methods
@@ -130,10 +150,4 @@ Here is the syntax used in c++ to conjure a [Dynamic cast](#dynamic-cast):
 
 Here's a list of useful links for further information about Type Casting in C++
 
-- https://github.com/qingqingqingli/CPP/wiki/Module06#2nd-c-cast-dynamic_cast
-
-- https://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used
-
-- https://www.youtube.com/watch?v=HlNVgmvX1EI
-
-- https://www.youtube.com/watch?v=pWZS1MtxI-A
+- https://www.codeproject.com/Articles/257589/An-Idiots-Guide-to-Cplusplus-Templates-Part-1

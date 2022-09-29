@@ -6,13 +6,14 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 12:29:16 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/27 23:27:03 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:19:25 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 void	test1(){
+
 	// Empty
 	std::cout<< GREEN<<std::endl << "Empty array" << RESET<<std::endl;
 	std::cout<< GREEN<<"----------------------------"<<RESET << std::endl;

@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 00:18:10 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/25 14:33:11 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/28 22:36:20 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
 	std::string	sarr[4] = {"See?, ", "it", "works", "oke"};
 
 	// INT
-	::ft_tests(iarr, 4, "INT");
+	::ft_tests(iarr, 4, "INT"); // the scope :: can be use to demark that is a template funtion
 
 	// CHAR
 	ft_tests(carr, 5, "CHAR");
