@@ -6,93 +6,116 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:58:54 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/28 22:43:07 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:39:50 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
  #include "easyfind.hpp"
 
+void	test1(){
 
-int	main(){
-
-// // for testing we create a container of type Vector
-// 	std::vector<int> vc;
 	
-// // We fill it with numbers 
-// 	for (int i = 0; i < 20; ++i)
-// 		vc.push_back(i);
-		
-	
-// // We fill it with numbers 
-// 	std::vector<int>::const_iterator iter = vc.begin();
-// 	for (; iter != vc.end(); ++iter)
-// 		std::cout << *iter << std::endl;
-		
-// 	try{
-// 		easyfind<std::vector<int> >(vc, 40);
-// 	}catch (std::exception &e){
-// 		std::cerr << e.what()<< std::endl;
-// 	}
-
+	std::cout <<GREEN<< "Testing one single vector container in random way" <<RESET<<std::endl;
+	std::cout <<GREEN<< "[RUN MULTIPLE TIMES FOR TESTING]" <<RESET<<std::endl;
 	std::vector<int> v;
 
 	for(int i = -1; i < 10; ++i)
 	v.push_back(i);
 
+	//easyfind() will only return number found or error if not 
 	std::vector<int>::const_iterator it;
 	try{
-		it = easyfind(v, 2);
-		std::cout << *it << std::endl;
+		it = easyfind(v, (arc4random() % 10 + 1));
+		std::cout <<YLLW<< *it <<RESET<< std::endl;
 	}catch(std::exception &e){
 		std::cerr <<RED<< e.what()<< RESET<<std::endl;
 	}
 }
 
-// #include <vector>
-// #include <list>
-// #include <deque>
-// #include <iostream>
+void	test2(){
 
-// #include "easyfind.hpp"
+	std::cout <<YLLW<< "Testing Multiple containers with an overflow" <<RESET<<std::endl;
 
-// int main(void) {
-// 	std::vector<int> v_container;
-// 	std::list<int> l_container;
-// 	std::deque<int> d_container;
+	/*	The idea of the test is to create 3 different container types and 
+		to fill them up with values, then to create an iterator and apply
+		our easy find function to it and finding each member until we reach overflow
+		and catch our exception */
 
-// 	for (int i = 0; i < 10; ++i) {
-// 		v_container.push_back(i);
-// 		l_container.push_back(i);
-// 		d_container.push_back(i);
-// 	}
+	std::vector<int> v_container;
+	std::list<int> l_container;
+	std::deque<int> d_container;
 
-// 	std::cout << "===== test with vector =====" << std::endl;
-// 	for (int i = 0; i < 15; ++i) {
-// 		std::vector<int>::const_iterator v_it = easyfind(v_container, i);
-// 		if (v_it == v_container.end())
-// 			std::cerr << i << " is not founded" << std::endl;
-// 		else
-// 			std::cout << i << " is founded!" << std::endl;
-// 	}
-// 	std::cout << std::endl;
+	for (int i = 1; i <= 10; ++i) {
+		v_container.push_back(i);
+		l_container.push_back(i);
+		d_container.push_back(i);
+	}
 
-// 	std::cout << "===== test with list =====" << std::endl;
-// 	for (int i = 0; i < 15; ++i) {
-// 		std::list<int>::const_iterator l_it = easyfind(l_container, i);
-// 		if (l_it == l_container.end())
-// 			std::cerr << i << " is not founded" << std::endl;
-// 		else
-// 			std::cout << i << " is founded!" << std::endl;
-// 	}
-// 	std::cout << std::endl;
+	std::cout <<GREEN<< "===== Test with Vector =====" <<RESET<< std::endl;
+	try{
+		for (int i = 1; i <= 15; ++i){
+			std::vector<int>::const_iterator v_it = easyfind(v_container, i);
+			if (v_it != v_container.end())
+			std::cout <<GREEN<< i << YLLW<<" Was found!" <<RESET<< std::endl;
+		}
+	}catch (std::exception &e){
+		std::cerr <<RED<< e.what()<<RESET<< std::endl;
+	}
+	std::cout << std::endl;
 
-// 	std::cout << "===== test with deque =====" << std::endl;
-// 	for (int i = 0; i < 15; ++i) {
-// 		std::deque<int>::const_iterator d_it = easyfind(d_container, i);
-// 		if (d_it == d_container.end())
-// 			std::cerr << i << " is not founded" << std::endl;
-// 		else
-// 			std::cout << i << " is founded!" << std::endl;
-// 	}
-// 	std::cout << std::endl;
-// }
+	std::cout <<GREEN<< "===== Test with List =====" <<RESET<< std::endl;
+	try{
+		for (int i = 1; i <= 15; ++i){
+			std::list<int>::const_iterator l_it = easyfind(l_container, i);
+			if (l_it != l_container.end())
+			std::cout <<GREEN<< i << YLLW<<" Was found!" <<RESET<< std::endl;
+		}
+	}catch (std::exception &e){
+		std::cerr <<RED<< e.what()<<RESET<< std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout <<GREEN<< "===== Test with Deque =====" <<RESET<< std::endl;
+	try{
+		for (int i = 1; i <= 15; ++i){
+			std::deque<int>::const_iterator d_it = easyfind(d_container, i);
+			if (d_it != d_container.end())
+			std::cout <<GREEN<< i << YLLW<<" Was found!" <<RESET<< std::endl;
+		}
+	}catch (std::exception &e){
+		std::cerr <<RED<< e.what()<<RESET<< std::endl;
+	}
+	std::cout << std::endl;
+}
+
+void	test3(){
+
+	// // for testing we create a container of type Vector
+	std::cout <<YLLW<< "Testing one Vector containers with specific number" <<RESET<<std::endl;
+	std::vector<int> vc;
+	
+// We fill it with numbers
+	for (int i = 0; i < 10; ++i)
+		vc.push_back(i);
+
+// We create the iterator and print each element inside
+	std::vector<int>::const_iterator iter = vc.begin();
+	for (; iter != vc.end(); ++iter)
+		std::cout <<GREEN<< *iter <<RESET<< std::endl;
+	// We implement our easyfind function and look for the wrong number
+	std::vector<int>::const_iterator v_iter = easyfind<std::vector<int> >(vc, 5);
+	try{
+		std::cout <<RED<<"Looking for "<< *v_iter <<RESET<< std::endl;
+		if(v_iter != vc.end())
+			std::cout <<RED<< *v_iter << YLLW<<" Was found!" <<RESET<< std::endl;
+	}catch (std::exception &e){
+		std::cerr <<RED<< e.what()<< RESET<<std::endl;
+	}
+}
+
+int	main(){
+
+		// test1();
+		test2();
+		// test3();
+}

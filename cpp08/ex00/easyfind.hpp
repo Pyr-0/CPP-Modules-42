@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:58:35 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/29 14:06:26 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/09/30 13:19:49 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <list>
 # include <iterator>
 # include <array>
+# include <deque>
 
 //============COLORS!=======//
 #define						RED "\e[31m"
