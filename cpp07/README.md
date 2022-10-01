@@ -52,13 +52,10 @@ In this set of exercises we will learn about Templates and their basic uses in C
 C++ has 2 main uses of templates:
 <br /><br /> ![alt text](https://d1m75rqqgidzqn.cloudfront.net/wp-data/2022/09/15170233/image-8.png)
 
-### ```Classes Templates:```
-
-More often, you would design and use class templates, than function templates. In general, you use a class template to define an abstract type whose behavior is generic and is reusable, adaptable.
 
 ## Exercise 00: Start with a few functions <a name = "Ex00"></a>
 
-This first exercise introduces us to the concept of ```Function Templates```, and the use and call of custom templates in our programs.
+This first exercise introduces us to the concept of ```Function Templates```, and the use and call of custom templates in our programs. So here is a short introduction and exemplification on how they work.
 
 ### ```Function Templates:```
 
@@ -107,43 +104,75 @@ tells the compiler that this is a function-template. The actual meaning of ```TY
 
 
 ## Exercise 01: Iter <a name = "Ex01"></a>
+Now in this exercise lets use the learned concepts into iterating the work of a function and implementing it into an array of elements.
 
+For this we can implement as before a template over a function and pass a function as a parameter and the rest of the elements requested by the task (the address and length of the array)
 
 ```c++
-	//this will be the Library needed to use the multiple casting methods
-	#include <iostream>
+	template< typename T>
+	void	iter(T *array, int arrayLength, void myFunction(T const &ref)){
 
-	//Here we asume of x to be a different data type from where we want to cast
-	std::reinterpret_cast<uintptr_t>(*x);
-
+		// for every element in the array apply your custom function
+		for(int i = 0; i < arrayLength; i++)
+			myFunc(array[i]);
+	}
 ```
-![alt text](https://i.imgflip.com/6uk77j.jpg)
 
 ## Exercise 02: Identify real type <a name = "Ex02"></a>
 
+Now we can implement the concept of Templates into a Class, and that is what the exercise is about, to create a class array that creates and initializes an array using templates in order to create arrays of any type.
+
+for a better understanding this is a short view on how ```Class Templates``` work.
+
+### ```Classes Templates:```
+
+More often, you would design and use class templates, than function templates. In general, you use a class template to define an abstract type whose behavior is generic and is reusable, adaptable.
+
+## Syntax Example and usage
 
 ```c++
-	//this will be the Library needed to use the multiple casting methods
-	#include <iostream>
+	#include <iostream> 
+	using namespace std; 
+	
+	template <class T> 
+	class Test{ 
+	// Data memnbers of test 
+		public: 
+		   Test() 
+		   { 
+		       // Initialization of data members 
+		       cout << "General template  \n"; 
+		   } 
+		   // Other methods of Test 
+	}; 
+	
+	template <class T> 
+	class Test <int> 
+	{ 
+	public: 
+	   Test() 
+	   { 
+	       // Initialization of data members 
+	       cout << "Specialized template \n"; 
+	   } 
+	}; 
+	
+	int main() 
+	{ 
+	    Test<int> a; 
+	    Test<char> b; 
+	    Test<float> c; 
+	    return 0; 
+	} 
 
-	//Here we asume of x to be a different data type from where we want to cast
-	std::dynamic_cast<char>(x);
+// and the class template declaration starts with same syntax as function templates:
 
-	std::dynamic_cast<int>(x);
-
-	std::dynamic_cast<float>(x);
-
-	std::dynamic_cast<double>(x);
+	template<class T>
+	class Item
 ```
+Note that the keyword ```class``` is used two times - firstly to specify template type specification (T), and secondly to specify that this is a C++ class declaration.
 
 ### Summary
-
-- Use ```static_cast``` for ordinary type conversions.
-
-- Use ```reinterpret_cast``` for low-level reinterpreting of bit patterns. Use with extreme caution.
-
-- Use ```dynamic_cast``` for converting pointers/references within an inheritance hierarchy  with polymorphic classes.
-
 #
 
 ## 📚 Resources <a name = "usage"></a>

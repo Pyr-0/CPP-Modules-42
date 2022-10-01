@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 00:14:43 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/29 14:08:45 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:21:15 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 //============ MAIN TEMPLATE ============//
 template< typename T>
-void	iter(T *array, int arrayLength, void myFunc(T const &ref)){
+void	iter(T array[], int arrayLength, void myFunc(T const &ref)){
 
 	for(int i = 0; i < arrayLength; i++)
 		myFunc(array[i]);
