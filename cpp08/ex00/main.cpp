@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:58:54 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/09/30 14:39:50 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:34:28 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	test1(){
 
 	
-	std::cout <<GREEN<< "Testing one single vector container in random way" <<RESET<<std::endl;
-	std::cout <<GREEN<< "[RUN MULTIPLE TIMES FOR TESTING]" <<RESET<<std::endl;
+	std::cout <<std::endl;
+	std::cout <<GREEN<< "TESTING SINGLE CONTAINERS RANDOMLY" <<RESET<<std::endl;
+	std::cout <<GREEN<< " [RUN MULTIPLE TIMES FOR TESTING]" <<RESET<<std::endl;
+	std::cout <<std::endl;
 	std::vector<int> v;
 
 	for(int i = -1; i < 10; ++i)
@@ -30,11 +32,40 @@ void	test1(){
 	}catch(std::exception &e){
 		std::cerr <<RED<< e.what()<< RESET<<std::endl;
 	}
+	std::cout <<std::endl;
 }
 
 void	test2(){
 
-	std::cout <<YLLW<< "Testing Multiple containers with an overflow" <<RESET<<std::endl;
+	// // for testing we create a container of type Vector
+	std::cout <<std::endl;
+	std::cout <<GREEN<< "TEST ONE VECTOR CONTAINER WITH SPECIFIC NUMBER" <<RESET<<std::endl;
+	std::vector<int> vc;
+	
+// We fill it with numbers
+	for (int i = 0; i < 10; ++i)
+		vc.push_back(i);
+
+// We create the iterator and print each element inside
+	std::vector<int>::const_iterator iter = vc.begin();
+	for (; iter != vc.end(); ++iter)
+		std::cout <<YLLW<< *iter <<RESET<< std::endl;
+	// We implement our easyfind function and look for the wrong number
+	std::vector<int>::const_iterator v_iter = easyfind<std::vector<int> >(vc, 5);
+	try{
+		std::cout <<RED<<"Looking for "<< *v_iter <<RESET<< std::endl;
+		if(v_iter != vc.end())
+			std::cout <<RED<< *v_iter << YLLW<<" Was found!" <<RESET<< std::endl;
+	}catch (std::exception &e){
+		std::cerr <<RED<< e.what()<< RESET<<std::endl;
+	}
+	std::cout <<std::endl;
+}
+
+void	test3(){
+
+	std::cout <<std::endl;
+	std::cout <<GREEN<< "Testing Multiple containers with an overflow" <<RESET<<std::endl;
 
 	/*	The idea of the test is to create 3 different container types and 
 		to fill them up with values, then to create an iterator and apply
@@ -86,36 +117,12 @@ void	test2(){
 		std::cerr <<RED<< e.what()<<RESET<< std::endl;
 	}
 	std::cout << std::endl;
-}
-
-void	test3(){
-
-	// // for testing we create a container of type Vector
-	std::cout <<YLLW<< "Testing one Vector containers with specific number" <<RESET<<std::endl;
-	std::vector<int> vc;
-	
-// We fill it with numbers
-	for (int i = 0; i < 10; ++i)
-		vc.push_back(i);
-
-// We create the iterator and print each element inside
-	std::vector<int>::const_iterator iter = vc.begin();
-	for (; iter != vc.end(); ++iter)
-		std::cout <<GREEN<< *iter <<RESET<< std::endl;
-	// We implement our easyfind function and look for the wrong number
-	std::vector<int>::const_iterator v_iter = easyfind<std::vector<int> >(vc, 5);
-	try{
-		std::cout <<RED<<"Looking for "<< *v_iter <<RESET<< std::endl;
-		if(v_iter != vc.end())
-			std::cout <<RED<< *v_iter << YLLW<<" Was found!" <<RESET<< std::endl;
-	}catch (std::exception &e){
-		std::cerr <<RED<< e.what()<< RESET<<std::endl;
-	}
+	std::cout <<std::endl;
 }
 
 int	main(){
 
-		// test1();
+		test1();
 		test2();
-		// test3();
+		//test3();
 }

@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 16:44:21 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/10/02 20:45:32 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:56:15 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,27 @@ Span::Span(const std::size_t &size):size_(size){
 }
 
 Span::Span(const Span &copy):size_(copy.size_), elems_(copy.elems_){}
+
+Span::Span(int first, int last, int jump)
+{
+	unsigned int _n_contents = 0;
+	int f, l;
+	if (last > first)
+	{
+		f = first;
+		l = last;
+	}
+	else
+	{
+		f = last;
+		l = first;
+	}
+	size_= std::abs((last - first) / jump);
+	elems_.reserve(size_);
+	for (int i = f; i < l; i += jump)
+		elems_.push_back(i);
+	_n_contents = size_;
+}
 
 Span::~Span(void) {}
 
@@ -35,25 +56,16 @@ void Span::addNumber(int i) {
 		elems_.push_back(i);
 
 }
-void	Span::addNumber(std::vector<int> anotherVector){
 
-	std::vector<int>::iterator it;
-	it = elems_.end();
-	if (anotherVector.size() <= (size_ - elems_.size()))
-		elems_.insert(it, anotherVector.begin(), anotherVector.end());
-	else
-		throw std::out_of_range("the numbers you try to insert exceed the spans limit");
+void	Span::addNumber(my_iter start, my_iter end)
+{
+	if (end < start)
+		throw std::runtime_error("[ Range Error ] last number must be bigger than first!");
+		return ;
+	for (my_iter i = start; i != end; i++)
+		addNumber(*i);
 }
 
-void Span::addNumber(int first, int last) {
-		if (static_cast<std::size_t>(std::abs(last - first)) > size_)
-			throw std::length_error("[ Length Error ] container is full!");
-		else if (first >= last)
-			throw std::runtime_error("[ Range Error ] last number must be bigger than first!");
-
-		for (; first != last; ++first)
-			elems_.push_back(first);
-}
 /*	We use the sort and max algorithms from the STL*/
 unsigned int Span::shortestSpan(void) const{
 
@@ -77,10 +89,18 @@ unsigned int Span::shortestSpan(void) const{
 
 unsigned int Span::longestSpan(void) const{
 
-		if (elems_.size() <= 1)
-			throw std::runtime_error("[ Span Error ] Container must have more than one!");
-
+	if (elems_.size() <= 1)
+		throw std::runtime_error("[ Span Error ] Container must have more than one!");
 	int highest_val = *std::max_element(elems_.begin(), elems_.end());
 	int lowest_val = *std::min_element(elems_.begin(), elems_.end());
 	return static_cast<std::size_t>(std::abs(highest_val - lowest_val));
+}
+
+std::vector<int> const & Span::getelems(void)const{
+	return this->elems_;
+}
+
+std::ostream & operator<<(std::ostream & o, Span const & ref){
+	o << ref.getelems()[0] << std::endl;
+	return (o);
 }

@@ -148,13 +148,13 @@ More often, you would design and use class templates, than function templates. I
 	
 	template <class T> 
 	class Test <int> 
-	{ 
-	public: 
-	   Test() 
-	   { 
-	       // Initialization of data members 
-	       cout << "Specialized template \n"; 
-	   } 
+	{
+		public: 
+		   Test() 
+		   { 
+		       // Initialization of data members 
+		       cout << "Specialized template \n"; 
+		   } 
 	}; 
 	
 	int main() 
@@ -173,10 +173,14 @@ More often, you would design and use class templates, than function templates. I
 Note that the keyword ```class``` is used two times - firstly to specify template type specification (T), and secondly to specify that this is a C++ class declaration.
 
 ### Summary
-#
+
+- Templates are useful Placeholders for serializing our work.
+- Function templates help us to avoid repetitive code and create flexibility when passing parameters.
+- Class templates are the most common use of templates, they are a powerful mechanism for generating new class types automatically
 
 ## 📚 Resources <a name = "usage"></a>
 
 Here's a list of useful links for further information about Type Casting in C++
 
 - https://www.codeproject.com/Articles/257589/An-Idiots-Guide-to-Cplusplus-Templates-Part-1
+- https://www.mygreatlearning.com/blog/templates-in-cpp/

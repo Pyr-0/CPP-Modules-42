@@ -6,7 +6,7 @@
 /*   By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 01:57:17 by mrojas-e          #+#    #+#             */
-/*   Updated: 2022/10/03 02:17:06 by mrojas-e         ###   ########.fr       */
+/*   Updated: 2022/10/03 16:10:38 by mrojas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void basic_test(void) {
 	mstack.pop();
 	std::cout<<BLUE << mstack.size() <<RESET<< std::endl;
 	mstack.push(3);
-	mstack.push(5);
+	mstack.push(6);
 	mstack.push(737);
 	//[...]
 	mstack.push(0);
@@ -48,7 +48,7 @@ void list_test(void) {
 	mstack.pop_back();
 	std::cout<<BLUE << mstack.size() << RESET<<std::endl;
 	mstack.push_back(3);
-	mstack.push_back(5);
+	mstack.push_back(6);
 	mstack.push_back(737);
 	//[...]
 	mstack.push_back(0);
@@ -68,7 +68,7 @@ void iterator_test(void) {
 	MutantStack<std::string> mstack;
 	mstack.push("hello");
 	mstack.push("I'm");
-	mstack.push("milton");
+	mstack.push("milton from 42");
 	mstack.push("have a good day!");
 
 	std::cout <<GREEN<< "===== iterator =====" <<RESET<< std::endl;
