@@ -9,7 +9,7 @@
 
 [![mrojas-e's 42 CPP Module 06 Score](https://badge42.vercel.app/api/v2/cl8zseson00060gl6iupkaftb/project/2800909)](https://github.com/JaeSeoKim/badge42) 
 
-[![mrojas-e's 42 stats](https://badge.mediaplus.ma/greenbinary/mrojas-e?1337Badge=off&UM6P=off)](https://github.com/oakoudad/badge42)
+[![mrojas-e's 42 stats](https://badge42.vercel.app/api/v2/cl8zseson00060gl6iupkaftb/stats?cursusId=21&coalitionId=158)](https://github.com/JaeSeoKim/badge42)
 
 </div>
 
@@ -21,8 +21,6 @@
 [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
 </div>
-
-[![mrojas-e's 42 stats](https://badge42.vercel.app/api/v2/cl8zseson00060gl6iupkaftb/stats?cursusId=21&coalitionId=158)](https://github.com/JaeSeoKim/badge42)
 ---
 ## 📝 Table of Contents
 
