@@ -6,17 +6,17 @@
 #    By: mrojas-e <mrojas-e@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:08:58 by mrojas-e          #+#    #+#              #
-#    Updated: 2023/03/22 19:55:27 by mrojas-e         ###   ########.fr        #
+#    Updated: 2023/03/23 16:00:15 by mrojas-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	btc
-CC_FLAGS	=	-Wall -Werror -Wextra  
+NAME 		=	PmergeMe
+CC_FLAGS	=	-Wall -Werror -Wextra  -std=c++98 
 
 CC_FLAGS += -g
 RM			=	rm -rf
 DIR_OBJS	=	./obj/
-SRC			=	BitcoinExchange.cpp main.cpp
+SRC			=	PmergeMe.cpp main.cpp
 OBJS 		=	$(SRC:%.cpp=$(DIR_OBJS)%.o)
 
 all:			$(NAME)

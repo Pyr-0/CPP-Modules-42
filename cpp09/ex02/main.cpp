@@ -1,48 +1,88 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <list>
-#include <cstdlib>
+#include <deque>
+#include <string>
+#include <sstream>
 #include <ctime>
-#include "mergesort.hpp"
-#include "insertsort.hpp"
+#include <set>
+#include "PmergeMe.hpp"
 
-using namespace std;
+int main(int argc, char** argv)
+{
+    if (argc <= 1) {
+        std::cout << "Usage: " << argv[0] << " num1 num2 num3 ... numN" << std::endl;
+        return 0;
+    }
 
-int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        cerr << "Usage: " << argv[0] << " <positive integers>" << endl;
+    // Parse input arguments
+    std::set<int> set;
+    std::deque<int> deq;
+    bool valid_input = true;
+    for (int i = 1; i < argc; ++i) {
+        int num;
+        std::istringstream iss(argv[i]);
+        if (iss >> num) {
+            if (num < 0) {
+                std::cerr << "Error: Input cannot be negative." << std::endl;
+                valid_input = false;
+                break;
+            }
+            set.insert(num);
+            deq.push_back(num);
+        } else {
+            std::cerr << "Error: Invalid input. Input must be a positive integer." << std::endl;
+            valid_input = false;
+            break;
+        }
+    }
+
+    if (!valid_input) {
         return 1;
     }
 
-    // Convert input arguments to integers and store them in a vector
-    vector<int> input;
-    for (int i = 1; i < argc; i++) {
-        int num = atoi(argv[i]);
-        if (num <= 0) {
-            cerr << "Error: Non-positive integer detected." << endl;
-            return 1;
-        }
-        input.push_back(num);
+    // Print input set
+    std::cout<<GREEN << "Unsorted Set: "<<RESET;
+    for (std::set<int>::iterator it = set.begin(); it != set.end(); ++it) {
+        std::cout << *it << " ";
     }
+    std::cout << std::endl;
 
-    // Display the unsorted input sequence
-    cout << "Before: ";
-    for (size_t i = 0; i < input.size(); i++) {
-        cout << input[i] << " ";
+    // Sort using set and print time
+    std::clock_t start_time = std::clock();
+    PmergeMe::mergeInsertionSort(set);
+    std::clock_t end_time = std::clock();
+    std::cout << GREEN<<"Time to process set with PmergeMe::mergeInsertionSort: "
+              << RED<<PmergeMe::getTimeString((end_time - start_time) / (double) (CLOCKS_PER_SEC / 1000000))
+              << std::endl;
+
+    // Print sorted set
+    std::cout <<GREEN<< "Sorted Set: "<<RESET;
+    for (std::set<int>::iterator it = set.begin(); it != set.end(); ++it) {
+        std::cout << *it << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
-    // Sort the input sequence using merge-insert sort algorithm with vector container
-    vector<int> v(input);
-    clock_t start = clock();
-    mergesort(v.begin(), v.end(), insertsort<vector<int> >());
-    double time_v = static_cast<double>(clock() - start) / CLOCKS_PER_SEC;
-
-    // Display the sorted sequence and the time taken by vector container
-    cout << "After: ";
-    for (size_t i = 0; i < v.size(); i++) {
-        cout << v[i] << " ";
+    // Print input deque
+    std::cout <<YLLW<< "Unsorted Deque: "<<RESET;
+    for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); ++it) {
+        std::cout << *it << " ";
     }
-    cout << endl;
-    cout << "Time to process a range of " << v.size() << " elements with vector container: " << time_v << " s
+    std::cout << std::endl;
+
+    // Sort using deque and print time
+    start_time = std::clock();
+    PmergeMe::mergeInsertionSort(deq);
+    end_time = std::clock();
+    std::cout <<YLLW<< "Time to process deque with PmergeMe::mergeInsertionSort: "
+              <<RED<< PmergeMe::getTimeString((end_time - start_time) / (double) (CLOCKS_PER_SEC / 1000000))
+              << std::endl;
+
+    // Print sorted deque
+    std::cout << YLLW<<"Sorted Deque: "<<RESET;
+    for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}

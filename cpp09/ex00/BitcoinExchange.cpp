@@ -1,132 +1,175 @@
 #include "BitcoinExchange.hpp"
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <stdexcept>
-#include <iomanip>
-#include <cstdlib>
-#include <ctime>
-#include <cstring>
 
+BitcoinExchange::BitcoinExchange() {}
 
-// Parse a CSV file containing Bitcoin price data and return it as a map
-btc_data_t parse_btc_csv(const std::string& filename)
-{
-	std::ifstream file(filename.c_str());
-	if (!file) {
-		throw std::runtime_error("Error: could not open file " + filename);
-	}
+BitcoinExchange::~BitcoinExchange() {}
 
-	btc_data_t btc_data;
-	std::string line;
-	bool first_line = true; // flag to skip the first line
-	while (std::getline(file, line)) {
-		if (first_line && line == "date | value") {
-			first_line = false;
-			continue;
-		}
-		std::istringstream iss(line);
-		std::string date_str, price_str;
-		std::getline(iss, date_str, '|');
-		std::getline(iss, price_str, '|');
+BitcoinExchange::BitcoinExchange(const BitcoinExchange & origin){*this = origin;}
 
-		std::tm date;
-
-		std::istringstream date_ss(date_str);
-		date_ss >> std::get_time(&date, "%Y-%m-%d");
-
-		if (date_ss.fail()) {
-			throw std::runtime_error("Error: invalid date format in " + filename);
-		}
-
-		float price = std::atof(price_str.c_str());
-		if (price < 0) {
-			throw std::runtime_error("Error: invalid price in " + filename);
-		}
-
-		std::time_t timestamp = std::mktime(&date);
-		btc_data.insert(std::make_pair(timestamp, price));
-	}
-
-	return btc_data;
+BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange & origin){
+	this->_map = origin._map;
+	return *this;
 }
 
-// Parse an input file containing dates and values and return it as a map
-// of Bitcoin values, keyed by timestamp
-input_data_t parse_input_file(const std::string& filename)
+void	BitcoinExchange::init_csv()
 {
-	std::ifstream file(filename.c_str());
-	if (!file) {
-		throw std::runtime_error("Error: could not open file " + filename);
-	}
+	std::ifstream csv("data.csv");
+	std::string read;
+	float nb;
+	size_t size;
 
-	input_data_t input_data;
-	std::string line;
-	bool first_line = true; // flag to skip the first line
-	while (std::getline(file, line)) {
-		if (first_line && line == "date | value") {
-			first_line = false;
-			continue;
-		}
-		std::istringstream iss(line);
-		std::string date_str, value_str;
-		std::getline(iss, date_str, '|');
-		std::getline(iss, value_str, '|');
-		//Date check
-		if (!is_valid_date(date_str)) {
-			std::cerr << "Error: bad input => " << line << std::endl;
-			continue;
-		}
-		//Max num check
-		float value = std::atof(value_str.c_str());
-		if (value < 0) {
-			std::cerr << "Error: not a positive number." << line << std::endl;
-			continue;
-		}
-		else if(value > 1000)
+	while(getline(csv, read))
+ 	{
+		if (read != "date,exchange_rate")
 		{
-			std::cerr << "Error: too large a number."<< std::endl;
-			continue;
+			size = read.find(',');
+			std::istringstream(read.substr(size + 1, read.length())) >> nb;
+			_map[read.substr(0, size)] = nb;
 		}
-
-		std::tm date;
-		std::istringstream date_ss(date_str);
-		date_ss >> std::get_time(&date, "%Y-%m-%d");
-
-		std::time_t timestamp = std::mktime(&date);
-		
-		input_data.insert(std::make_pair(timestamp, value));
 	}
-
-	return input_data;
 }
 
-// Calculate the Bitcoin value for each input data point using the BTC price data
-void calculate_btc_values(const btc_data_t& btc_data, const input_data_t& input_data)
+void	BitcoinExchange::execute(char *file)
 {
-	for (input_data_t::const_iterator it = input_data.begin(); it != input_data.end(); ++it) {
-		std::time_t timestamp = it->first;
-		float value = it->second;
+ 	std::ifstream configfile(file);
+	std::string read;
 
-
-		btc_data_t::const_iterator btc_it = btc_data.find(timestamp);
-		if (btc_it == btc_data.end()) {
-			std::cerr << "Warning: no BTC price data for date " << std::put_time(std::gmtime(&timestamp), "%F") << std::endl;
-			continue;
-		}
-
-		float btc_price = btc_it->second;
-		float btc_value = value / btc_price;
-		std::cout << std::put_time(std::gmtime(&timestamp), "%F") << "|" << std::fixed << std::setprecision(2) << btc_value << std::endl;
-	}
+	while(getline(configfile, read))
+		CheckInfo(read);
 }
 
+void	BitcoinExchange::CheckInfo(std::string info)
+{
+	static bool first_line = true;
+    
+    // Skip the first line of input
+    if (first_line && info == "date | value") {
+        first_line = false;
+        return;
+    }
+	std::string date, s;
+	float	value;
+	std::istringstream ss(info);
+	int i = 0;
 
-bool is_valid_date(const std::string& date_str) {
-	struct tm date;
-	memset(&date, 0, sizeof(struct tm));
-	if (strptime(date_str.c_str(), "%Y-%m-%d", &date) == NULL) {
+	while (std::getline(ss, s, ' '))
+    {
+        if (i == 0)
+		{
+			if (!checkDate(s))
+				return ;
+			date = s;
+		}
+		if (i == 1 && s != "|")
+		{
+			std::cout << "Error: bad input => " << info << std::endl;
+			return ;
+		}
+		if (i == 2)
+		{
+			if (!checkValue(s))
+				return ;
+			std::istringstream(s) >> value;
+			if (value > 1000)
+			{
+				std::cout << "Error: too large a number.\n";
+				return ;
+			}
+		}
+		i++;
+	}
+	if (i != 3)
+	{
+			std::cout << "Error: bad input => " << info << std::endl;
+			return ;
+	}
+	logExchange(date, value);
+}
+
+bool BitcoinExchange::checkDate(const std::string & str)
+{
+    std::istringstream ss(str);
+    int year, month, day;
+    char sep1, sep2;
+    ss >> year >> sep1 >> month >> sep2 >> day;
+    if (!ss || sep1 != '-' || sep2 != '-')
+    {
+        std::cout << "Error: incorrect date\n";
+        return false;
+    }
+    if (year < 2009 || year > 2022)
+    {
+        std::cout << "Error: incorrect year.\n";
+        return false;
+    }
+    if (month < 1 || month > 12)
+    {
+        std::cout << "Error: incorrect month.\n";
+        return false;
+    }
+    if (day < 1 || day > 31)
+    {
+        std::cout << "Error: incorrect day.\n";
+        return false;
+    }
+    if (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11))
+    {
+        std::cout << "Error: incorrect day.\n";
+        return false;
+    }
+    if (day > 28 && month == 2)
+    {
+        std::cout << "Error: incorrect day.\n";
+        return false;
+    }
+    return true;
+}
+
+bool	is_Num(const std::string &str)
+{
+	if (!str.empty() && str.find_first_not_of("0123456789.-") != std::string::npos)
+		return false;
+	return true;
+}
+
+bool BitcoinExchange::checkValue(const std::string & str)
+{
+	if (!is_Num(str) || !str.find('.', 0) || str.find('.', str.length() - 1) != std::string::npos)
+	{
+		std::cout << "Error: not a Number\n";
+		return false; 
+	}
+	if (str < "0")
+	{
+		std::cout << "Error: not a positive number.\n";
+		return false;
+	}
+	if (str.length() > 10 || (str.length() == 10 && str > "2147483647"))
+	{
+		std::cout << "Error: too large a number.\n";
 		return false;
 	}
 	return true;
+}
+
+void	BitcoinExchange::logExchange(std::string date, float nb)
+{
+	float res;
+
+	res = getBitcoinValue(date) * nb;
+	std::cout << date << " => " << nb << " = " << res << std::endl;
+}
+
+float	BitcoinExchange::getBitcoinValue(std::string date)
+{
+	std::map<std::string, float>::const_iterator it;
+
+	it  = _map.find(date);
+	if (it != _map.end())
+		return (it->second);
+	else
+	{
+		it = _map.lower_bound(date);
+		return (it->second);
+	}
 }
